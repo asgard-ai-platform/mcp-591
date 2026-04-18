@@ -1,3 +1,5 @@
+import re
+
 from fastmcp import FastMCP
 from mcp_591.client import Client591
 from mcp_591.constants import (
@@ -102,6 +104,54 @@ def search_sale(
     return {
         "total_rows": result.get("totalRows"),
         "listings": listings,
+    }
+
+
+def _strip_html(text: str) -> str:
+    text = re.sub(r"<[^>]+>", "", text or "")
+    text = text.replace("&nbsp;", " ")
+    return re.sub(r" {2,}", " ", text).strip()
+
+
+@mcp.tool()
+def get_sale_detail(post_id: str) -> dict:
+    """取得 591 售屋物件的完整詳細資訊。
+
+    Args:
+        post_id: 物件 ID，來自 search_sale 結果的 post_id 欄位。
+    """
+    resp = _client.get_sale_detail(post_id)
+    d = resp.get("data", {})
+    return {
+        "title": d.get("title"),
+        "price": d.get("price"),
+        "unit_price": d.get("unitprice"),
+        "area": d.get("area"),
+        "main_area": d.get("mainarea"),
+        "ratio_rate": d.get("ratioRate"),
+        "layout": d.get("layout"),
+        "floor": d.get("floor"),
+        "age": d.get("age"),
+        "shape": d.get("shape"),
+        "kind": d.get("kind"),
+        "region": d.get("region"),
+        "section": d.get("section"),
+        "street": d.get("street"),
+        "community": d.get("casesname"),
+        "traffic": d.get("traffic"),
+        "parking": d.get("parking_new") or d.get("parking"),
+        "fitment": d.get("fitment"),
+        "manage_fee": d.get("manageprice"),
+        "lat": d.get("lat"),
+        "lng": d.get("lng"),
+        "feat_tag": d.get("feat_tag"),
+        "area_intro": d.get("area_intro"),
+        "mortgage_info": d.get("mortgage_info"),
+        "agent": d.get("linkman"),
+        "agent_type": d.get("identity"),
+        "phone": d.get("mobile"),
+        "company": d.get("company_name"),
+        "remark": _strip_html(d.get("remark", "")),
     }
 
 

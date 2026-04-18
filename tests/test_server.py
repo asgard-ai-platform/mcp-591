@@ -3,7 +3,7 @@ from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 from mcp_591.client import Client591
-from mcp_591.server import _filter_listing, _LISTING_KEYS, search_sale
+from mcp_591.server import _filter_listing, _LISTING_KEYS, _strip_html, search_sale, get_sale_detail
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
@@ -71,3 +71,50 @@ class TestSearchSaleTool:
                 result = search_sale("桃園市", section="中壢區")
         for item in result["listings"]:
             assert set(item.keys()) <= _LISTING_KEYS
+
+
+class TestStripHtml:
+    def test_removes_tags(self):
+        assert _strip_html("<p>hello <b>world</b></p>") == "hello world"
+
+    def test_replaces_nbsp(self):
+        assert _strip_html("foo&nbsp;bar") == "foo bar"
+
+    def test_collapses_spaces(self):
+        assert _strip_html("a&nbsp;&nbsp;&nbsp;b") == "a b"
+
+    def test_empty_string(self):
+        assert _strip_html("") == ""
+
+
+class TestGetSaleDetailTool:
+    def test_returns_expected_fields(self):
+        raw = _load("sale_detail.json")
+        client = Client591(device_id="test")
+        with patch.object(client._session, "get", return_value=_mock_resp(raw)):
+            with patch("mcp_591.server._client", client):
+                result = get_sale_detail("19708683")
+        for key in ("title", "price", "area", "layout", "floor", "age",
+                    "region", "section", "lat", "lng"):
+            assert key in result
+
+    def test_remark_has_no_html_tags(self):
+        raw = _load("sale_detail.json")
+        client = Client591(device_id="test")
+        with patch.object(client._session, "get", return_value=_mock_resp(raw)):
+            with patch("mcp_591.server._client", client):
+                result = get_sale_detail("19708683")
+        assert "<" not in result["remark"]
+        assert ">" not in result["remark"]
+        assert "&nbsp;" not in result["remark"]
+
+    def test_maps_fixture_values(self):
+        raw = _load("sale_detail.json")
+        client = Client591(device_id="test")
+        with patch.object(client._session, "get", return_value=_mock_resp(raw)):
+            with patch("mcp_591.server._client", client):
+                result = get_sale_detail("19708683")
+        assert result["price"] == "1,688萬元"
+        assert result["layout"] == "3房2廳2衛"
+        assert result["community"] == "麗江星漾"
+        assert result["agent_type"] == "仲介"
