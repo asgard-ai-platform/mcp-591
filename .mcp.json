@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "591": {
+      "command": "uv",
+      "args": ["run", "mcp-591"],
+      "cwd": "${PWD}"
+    }
+  }
+}
