@@ -9,6 +9,14 @@ PATTERNS: dict[int, str] = {
     5: "5房以上",
 }
 
+TOILETS: dict[int, str] = {
+    1: "1衛",
+    2: "2衛",
+    3: "3衛",
+    4: "4衛",
+    5: "5衛以上",
+}
+
 SHAPES: dict[int, str] = {
     1: "公寓",
     2: "電梯大樓",
