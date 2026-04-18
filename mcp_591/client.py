@@ -1,0 +1,107 @@
+import time
+import uuid
+import warnings
+
+import requests
+from urllib3.exceptions import InsecureRequestWarning
+
+_MOBILE_UA = (
+    "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/147.0.0.0 Mobile Safari/537.36"
+)
+
+
+class Client591:
+    _SALE_URL = "https://bff-house.591.com.tw/v1/touch/sale/list"
+
+    def __init__(self, device_id: str | None = None) -> None:
+        self._device_id = device_id or uuid.uuid4().hex
+        self._session = requests.Session()
+        self._session.headers.update(
+            {
+                "user-agent": _MOBILE_UA,
+                "device": "touch",
+                "deviceid": self._device_id,
+                "origin": "https://m.591.com.tw",
+                "referer": "https://m.591.com.tw/",
+            }
+        )
+        self._session.cookies.set("T591_TOKEN", self._device_id)
+        # 591's cert is missing Subject Key Identifier; suppress the noise
+        self._session.verify = False
+        warnings.filterwarnings("ignore", category=InsecureRequestWarning)
+
+    def search_sale(
+        self,
+        region_id: int,
+        section_ids: list[int],
+        *,
+        first_row: int = 0,
+        page_size: int = 30,
+        price_str: str | None = None,
+        kind: int | None = None,
+    ) -> dict:
+        """Search for sale listings.
+
+        Args:
+            region_id: County ID. e.g. 6 = 桃園市
+            section_ids: District IDs. e.g. [67] = 中壢區
+            first_row: Pagination offset.
+            page_size: Results per page (max 30).
+            price_str: Price range in 萬. e.g. "1000_1500" or "1000_1250,1250_1500"
+            kind: Property type. e.g. 9 = 住宅
+        """
+        params: dict = {
+            "type": "sale",
+            "version": 2017,
+            "regionid": region_id,
+            "sectionidStr": ",".join(str(i) for i in section_ids),
+            "firstRow": first_row,
+            "newPageSize": page_size,
+            "device": "touch",
+            "device_id": self._device_id,
+            "timestamp": int(time.time() * 1000),
+        }
+        if price_str is not None:
+            params["price_str"] = price_str
+        if kind is not None:
+            params["kind"] = kind
+
+        resp = self._session.get(self._SALE_URL, params=params)
+        resp.raise_for_status()
+        return resp.json()
+
+
+if __name__ == "__main__":
+    import sys
+    from mcp_591.regions import REGIONS, SECTIONS, SECTIONS_BY_REGION
+
+    region_name = sys.argv[1] if len(sys.argv) > 1 else "桃園市"
+    section_name = sys.argv[2] if len(sys.argv) > 2 else None
+
+    region_id = next((rid for rid, name in REGIONS.items() if name == region_name), None)
+    if region_id is None:
+        print(f"找不到縣市：{region_name}")
+        print("可用：", list(REGIONS.values()))
+        sys.exit(1)
+
+    if section_name:
+        section_ids = [
+            sid for sid, (sname, rid) in SECTIONS.items()
+            if sname == section_name and rid == region_id
+        ]
+        if not section_ids:
+            available = list(SECTIONS_BY_REGION[region_id].values())
+            print(f"找不到區域：{section_name}（{region_name}）")
+            print("可用：", available)
+            sys.exit(1)
+    else:
+        section_ids = list(SECTIONS_BY_REGION[region_id].keys())
+
+    client = Client591()
+    result = client.search_sale(region_id=region_id, section_ids=section_ids, kind=9, page_size=5)
+    listings = [x for x in result.get("data", []) if "post_id" in x]
+    print(f"{region_name}{section_name or '全區'}  totalRows: {result.get('totalRows')}")
+    for h in listings:
+        print(f"  [{h['post_id']}] {h['price']:>10}  {h['title'][:30]}")
