@@ -1,6 +1,14 @@
 # Region, section, and property kind ID mappings scraped from 591.com.tw
 # Key: region/section ID (int), Value: Chinese name
 
+PATTERNS: dict[int, str] = {
+    1: "1房",
+    2: "2房",
+    3: "3房",
+    4: "4房",
+    5: "5房以上",
+}
+
 SHAPES: dict[int, str] = {
     1: "公寓",
     2: "電梯大樓",

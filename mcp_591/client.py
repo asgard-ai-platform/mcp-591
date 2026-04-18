@@ -42,6 +42,7 @@ class Client591:
         price_str: str | None = None,
         kind: int | None = None,
         shape_ids: list[int] | None = None,
+        pattern_ids: list[int] | None = None,
     ) -> dict:
         """Search for sale listings.
 
@@ -52,7 +53,8 @@ class Client591:
             page_size: Results per page (max 30).
             price_str: Price range in 萬. e.g. "1000_1500" or "1000_1250,1250_1500"
             kind: Property type. e.g. 9 = 住宅 (see KINDS in constants)
-            shape_ids: Building shape filter. e.g. [2] = 電梯大樓 (see SHAPES in constants)
+            shape_ids: Building shape. e.g. [2] = 電梯大樓 (see SHAPES in constants)
+            pattern_ids: Room count. e.g. [3] = 3房, [5] = 5房以上 (see PATTERNS in constants)
         """
         params: dict = {
             "type": "sale",
@@ -71,6 +73,8 @@ class Client591:
             params["kind"] = kind
         if shape_ids is not None:
             params["shape_str"] = ",".join(str(i) for i in shape_ids)
+        if pattern_ids is not None:
+            params["pattern_str"] = ",".join(str(i) for i in pattern_ids)
 
         resp = self._session.get(self._SALE_URL, params=params)
         resp.raise_for_status()
@@ -79,13 +83,14 @@ class Client591:
 
 if __name__ == "__main__":
     import sys
-    from mcp_591.constants import REGIONS, SECTIONS, SECTIONS_BY_REGION, SHAPES
+    from mcp_591.constants import REGIONS, SECTIONS, SECTIONS_BY_REGION, SHAPES, PATTERNS
 
-    # Usage: client.py <縣市> [區域] [型態,型態,...]
-    # e.g.  client.py 桃園市 中壢區 透天厝,電梯大樓
+    # Usage: client.py <縣市> [區域] [型態,...] [格局,...]
+    # e.g.  client.py 桃園市 中壢區 透天厝 3房,4房
     region_name = sys.argv[1] if len(sys.argv) > 1 else "桃園市"
     section_name = sys.argv[2] if len(sys.argv) > 2 else None
     shape_names = sys.argv[3].split(",") if len(sys.argv) > 3 else []
+    pattern_names = sys.argv[4].split(",") if len(sys.argv) > 4 else []
 
     region_id = next((rid for rid, name in REGIONS.items() if name == region_name), None)
     if region_id is None:
@@ -113,13 +118,22 @@ if __name__ == "__main__":
             print("可用：", list(SHAPES.values()))
             sys.exit(1)
 
+    pattern_ids = None
+    if pattern_names:
+        pattern_ids = [pid for pid, name in PATTERNS.items() if name in pattern_names]
+        if not pattern_ids:
+            print(f"找不到格局：{pattern_names}")
+            print("可用：", list(PATTERNS.values()))
+            sys.exit(1)
+
     client = Client591()
     result = client.search_sale(
         region_id=region_id, section_ids=section_ids, kind=9,
-        shape_ids=shape_ids, page_size=5,
+        shape_ids=shape_ids, pattern_ids=pattern_ids, page_size=5,
     )
     listings = [x for x in result.get("data", []) if "post_id" in x]
-    shape_label = f" [{','.join(shape_names)}]" if shape_names else ""
-    print(f"{region_name}{section_name or '全區'}{shape_label}  totalRows: {result.get('totalRows')}")
+    filters = ",".join(filter(None, [",".join(shape_names), ",".join(pattern_names)]))
+    label = f" [{filters}]" if filters else ""
+    print(f"{region_name}{section_name or '全區'}{label}  totalRows: {result.get('totalRows')}")
     for h in listings:
         print(f"  [{h['post_id']}] {h['price']:>10}  {h['title'][:30]}")
