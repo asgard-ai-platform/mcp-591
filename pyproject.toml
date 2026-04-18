@@ -20,3 +20,9 @@ build-backend = "hatchling.build"
 dev = [
     "pytest>=9.0.3",
 ]
+
+[tool.pytest.ini_options]
+addopts = "-m 'not integration'"
+markers = [
+    "integration: hits the real 591 API (deselected by default)",
+]
