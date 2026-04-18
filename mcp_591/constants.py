@@ -1,6 +1,16 @@
 # Region, section, and property kind ID mappings scraped from 591.com.tw
 # Key: region/section ID (int), Value: Chinese name
 
+# Predefined age ranges (年). Custom ranges not supported by the API.
+AGES: dict[str, str] = {
+    "_5":   "5年內",
+    "5_10": "5~10年",
+    "10_20": "10~20年",
+    "20_30": "20~30年",
+    "30_40": "30~40年",
+    "40_":  "40年以上",
+}
+
 # Predefined area ranges (坪). Custom ranges not supported by the API.
 AREAS: dict[str, str] = {
     "10_20":  "10~20坪",
