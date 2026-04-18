@@ -47,6 +47,7 @@ class Client591:
         toilet_ids: list[int] | None = None,
         area_str: str | None = None,
         age_str: str | None = None,
+        keywords: str | None = None,
     ) -> dict:
         """Search for sale listings.
 
@@ -62,6 +63,7 @@ class Client591:
             toilet_ids: Bathroom count. e.g. [2] = 2衛 (see TOILETS in constants)
             area_str: Area range key from AREAS. e.g. "30_40" = 30~40坪
             age_str: Age range key from AGES. e.g. "_5" = 5年內
+            keywords: Free-text search within listing titles/descriptions.
         """
         params: dict = {
             "type": "sale",
@@ -88,6 +90,8 @@ class Client591:
             params["area_str"] = area_str
         if age_str is not None:
             params["age_str"] = age_str
+        if keywords is not None:
+            params["keywords"] = keywords
 
         resp = self._session.get(self._SALE_URL, params=params)
         resp.raise_for_status()

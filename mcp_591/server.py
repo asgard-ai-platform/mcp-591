@@ -38,6 +38,7 @@ def search_sale(
     area: str | None = None,
     age: str | None = None,
     price_str: str | None = None,
+    keywords: str | None = None,
     page_size: int = 30,
     first_row: int = 0,
 ) -> dict:
@@ -53,6 +54,7 @@ def search_sale(
         area: 坪數區間，例如「30_40」，可選：10_20/20_30/30_40/40_50/50_60/60_100/100_150/150_200
         age: 屋齡區間，例如「_5」，可選：_5/5_10/10_20/20_30/30_40/40_
         price_str: 價格區間（萬），例如「1000_1500」
+        keywords: 關鍵字搜尋，例如「捷運」「學區」
         page_size: 每頁筆數，最大 30
         first_row: 分頁 offset
     """
@@ -91,6 +93,7 @@ def search_sale(
         area_str=area,
         age_str=age,
         price_str=price_str,
+        keywords=keywords,
         page_size=page_size,
         first_row=first_row,
     )
