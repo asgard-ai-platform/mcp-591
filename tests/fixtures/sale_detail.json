@@ -1,0 +1,615 @@
+{
+  "status": 1,
+  "flag": "1",
+  "data": {
+    "age": "8個月",
+    "layout2": "3房2廳2衛",
+    "layout": "3房2廳2衛",
+    "listLayout": "3房2廳",
+    "floor": "8F/15F",
+    "shape": "電梯大樓",
+    "parking": "平面式，已含售金內",
+    "community": "",
+    "cases_id": "0",
+    "managefee": "",
+    "traffic": "近A18高鐵桃園捷運站",
+    "ratioRate": "35%",
+    "area_intro": "主建物16.37坪，附屬建物1.12坪，共用部分9.3坪，公設比35%",
+    "area_intro_arr": [
+      {
+        "name": "登記總面積",
+        "value": "37.15坪"
+      },
+      {
+        "name": "主建物",
+        "value": "16.37坪"
+      },
+      {
+        "name": "附屬建物",
+        "value": "1.12坪"
+      },
+      {
+        "name": "共有部分",
+        "value": "9.30坪"
+      },
+      {
+        "name": "土地坪數",
+        "value": "-"
+      },
+      {
+        "name": "車位面積",
+        "value": "10.36坪"
+      }
+    ],
+    "title": "青埔高鐵A18｜麗江星漾｜低總價｜棟距景觀｜3房2衛｜平車",
+    "price": "1,688萬元",
+    "price_value": "1688",
+    "kind": "住宅",
+    "area": "37.15坪",
+    "area_value": "37.15",
+    "region": "桃園市",
+    "region_id": "6",
+    "section": "中壢區",
+    "section_id": "67",
+    "street": "青商路",
+    "addr": "",
+    "linkman": "涂堂釗",
+    "identity": "仲介",
+    "mobile": "0916-182-131",
+    "telephone": "03-2876000",
+    "email": "",
+    "unitprice": "45.44萬/坪",
+    "is_quality": "0",
+    "is_team_quality": "0",
+    "preferred_contact_method": "mobile",
+    "posttime": "1771748316",
+    "purpose_midify": "0",
+    "mobile_header": "0916-182-131",
+    "parking_new": "10.36坪，平面式，已含售金內",
+    "is_hide_tel": "0",
+    "tel_agreement": "0",
+    "isrecmoney": "收取服務費",
+    "warnmsg": "0",
+    "is_recmoney": "1",
+    "streetid": "66838",
+    "alley": "",
+    "lane": "x",
+    "addr_number": "x",
+    "addr_number2": "",
+    "hide_addr_detail": "1",
+    "edit_lane": "",
+    "edit_addr_number": "439",
+    "room": "3",
+    "hall": "2",
+    "toilet": "2",
+    "balcony": "0",
+    "is_balcony": "0",
+    "floor_in_floor": "",
+    "spacematerial_str": "",
+    "spacematerial": "0",
+    "carttype": "2",
+    "shape_id": "2",
+    "kind_id": "9",
+    "housetype": "3",
+    "pet": "",
+    "cook": "",
+    "edit_mobile": "0916-182-131",
+    "edit_telephone": "03-2876000",
+    "parking_shape": "電梯大樓",
+    "parking_kind": "平面式，已含售金內",
+    "manageprice": "0",
+    "lift": "0",
+    "area_unit": "1",
+    "mainarea": "16.37坪",
+    "modify_limit": "1",
+    "community_id": "",
+    "new_community_id": "5854664",
+    "casesID": "1820538",
+    "casesname": "麗江星漾",
+    "json_no_hometools": [],
+    "json_hometools": [
+      {
+        "name": "桌子",
+        "value": "1",
+        "status": "0"
+      },
+      {
+        "name": "椅子",
+        "value": "3",
+        "status": "0"
+      },
+      {
+        "name": "衣櫃",
+        "value": "4",
+        "status": "0"
+      },
+      {
+        "name": "床",
+        "value": "5",
+        "status": "0"
+      },
+      {
+        "name": "沙發",
+        "value": "7",
+        "status": "0"
+      }
+    ],
+    "json_fixture": [
+      {
+        "name": "熱水器",
+        "value": "1",
+        "status": "0"
+      },
+      {
+        "name": "天然瓦斯",
+        "value": "2",
+        "status": "0"
+      },
+      {
+        "name": "電視",
+        "value": "4",
+        "status": "0"
+      },
+      {
+        "name": "冰箱",
+        "value": "5",
+        "status": "0"
+      },
+      {
+        "name": "冷氣",
+        "value": "6",
+        "status": "0"
+      },
+      {
+        "name": "洗衣機",
+        "value": "7",
+        "status": "0"
+      },
+      {
+        "name": "網路",
+        "value": "14",
+        "status": "0"
+      },
+      {
+        "name": "第四台",
+        "value": "15",
+        "status": "0"
+      },
+      {
+        "name": "養寵物",
+        "value": "",
+        "status": "0"
+      },
+      {
+        "name": "開伙",
+        "value": "",
+        "status": "0"
+      },
+      {
+        "name": "車位",
+        "value": "",
+        "status": "1"
+      }
+    ],
+    "purpose": "依謄本為主",
+    "has_ai_feature": "",
+    "first_payment_ratio": "20",
+    "un_mortgage": "0",
+    "houseage": "0",
+    "isrenting": "0",
+    "isrent_ing": "否",
+    "carport": "1",
+    "hasCarport": "1",
+    "cartplacetypeNew": "1",
+    "market": [],
+    "livingID": "",
+    "fitment": "尚未裝潢",
+    "fitmentID": "1",
+    "id": "S19708683",
+    "type": "sale",
+    "remark": "<p dir=\"auto\"><span style=\"font-size: 16px;\">✨誠家團隊～工程師小釗✨</span></p><p dir=\"auto\"><span style=\"font-size: 16px;\">🚘青埔高鐵A18｜麗江星漾｜低總價｜棟距景觀｜3房2衛｜平車&nbsp;🚘</span></p><p dir=\"auto\"><span style=\"font-size: 16px;\">1.三房格局&nbsp;有玄關利用的大空間，全新未入住&nbsp;</span></p><p dir=\"auto\"><span style=\"font-size: 16px;\">2.已有設置充電裝置管線&nbsp;</span></p><p dir=\"auto\"><span style=\"font-size: 16px;\">3.社區質感佳&nbsp;地理位置好</span></p><p dir=\"auto\"><span style=\"font-size: 16px;\">4.步行高鐵A18&nbsp;交通機能好</span></p><p dir=\"auto\"><span style=\"font-size: 16px;\">5.24小時全天候保全<br></span><br><span style=\"font-size: 16px; color: rgb(20, 72, 171);\"><strong>🏠小釗的591房源</strong><br><a target=\"_blank\" href=\"https://www.591.com.tw/broker46346\">https://www.591.com.tw/broker46346</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p><p dir=\"auto\"><span style=\"font-size: 16px; color: rgb(20, 72, 171);\">🏠<strong>小釗的591數位名片</strong></span></p><p dir=\"auto\"><span style=\"font-size: 16px; color: rgb(20, 72, 171);\"><a target=\"_blank\" href=\"https://m.591.com.tw/v2/userCenter/digital-card/17967\">https://m.591.com.tw/v2/userCenter/digital-card/17967</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p><p dir=\"auto\"></p><p dir=\"auto\"><span style=\"font-size: 16px;\"><strong>⭐113年9月入職以來</strong></span></p><p dir=\"auto\"><span style=\"font-size: 18px; color: rgb(184, 2, 6);\">🔥113年第四季風雲菁英獎🔥</span></p><p dir=\"auto\"><span style=\"font-size: 18px; color: rgb(184, 2, 6);\">🔥114年第一季風雲菁英獎🔥<br>🔥114年第二季風雲菁英獎🔥<br>🔥114年第三季風雲菁英獎🔥<br>🔥114年第四季績優人員獎🔥<br>🔥114年年度風雲菁英獎🔥</span><br><br>我是深耕青埔多年的資深房仲，涂堂釗，擁有豐富的房地產知識與經驗，能為您提供最專業、最貼心的服務。<br><br>專業服務<br><br>**房屋買賣：**無論您是買方或賣方，都能為您提供最完善的服務，協助您找到理想的家園，或以最優惠的價格出售您的房產。<br>**投資諮詢：**我對青埔地區的房地產市場瞭若指掌，能為您提供最精闢的投資建議，助您掌握最佳的投資時機。<br>**其他服務：**除了房屋買賣與投資諮詢，還提供租賃、估價等服務，滿足您全方位的需求。<br><br>選擇涂堂釗，就是選擇專業與信任！<br><br>聯絡資訊<br><span style=\"color: rgb(23, 69, 46);\"><br></span><span style=\"color: rgb(218, 51, 48);\"><strong>電話：</strong></span><span style=\"color: rgb(244, 187, 41);\"><strong>涂堂釗&nbsp;0916-182-131<br></strong></span><span style=\"color: rgb(218, 51, 48);\"><strong>LINE&nbsp;ID：</strong></span><span style=\"color: rgb(244, 187, 41);\"><strong>ttaw0028</strong><br></span><br>個人特質<br><br>熱情：對房地產事業充滿熱忱，全心全意為客戶服務。<br>專業：具備豐富的專業知識，能為客戶提供最精闢的建議。<br>誠信：以誠信為本，與客戶建立互信互利的關係。<br>耐心：耐心傾聽客戶的需求，提供最貼心的服務。<br><br>如果您正在尋找一位專業、熱忱的房仲經紀人，涂堂釗絕對是您的最佳選擇！<br><br>⭐我們的用心，讓您看得到⭐<br><br>⭐如有買屋賣屋需求歡迎洽詢永慶房屋～涂堂釗⭐<br><br>⭐照片為公司版權所有，切勿盜取使用⭐<br><br>🏡永慶房屋-永慶青埔領航中悅店🏡<br><br>營業員登記字號（113）登字第&nbsp;474783&nbsp;號<br><br>永慶不動產－青埔領航中悅加盟店</p><p dir=\"auto\">誠逸不動產有限公司</p><p dir=\"auto\">許國良&nbsp;(104)桃市經字第000753號</p><p dir=\"auto\"></p><p dir=\"auto\">永慶不動產－青埔A19矽谷加盟店</p><p dir=\"auto\">誠昕不動產有限公司</p><p dir=\"auto\">李建鋒&nbsp;(104)北市經證字第02274號</p><p dir=\"auto\"></p><p dir=\"auto\">永慶不動產－青埔棒球場加盟店</p><p dir=\"auto\">誠軒不動產有限公司</p><p dir=\"auto\">婁方嚴&nbsp;&nbsp;(109)桃市經字第001269號<br><br><br>小釗服務項目<br><br>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;全台灣免費不動產估價<br><br>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房地合一稅免費諮詢<br><br>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修繕屋況給予屋況真誠建議<br><br>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;影片行銷<br><br>5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;銷售很強<br><br>6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;協助裝潢<br><br>7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;介紹銀行/轉增貸/資產整合🔥<br></p>",
+    "thumb": "https://img2.591.com.tw/house/2026/03/22/177419009132752907.png!190x150.png",
+    "photo": "https://img2.591.com.tw/house/2026/03/22/177419009132752907.png!1000x.water2.png|*|https://img2.591.com.tw/house/2026/02/27/177218357119566207.jpg!1000x.water2.jpg|*|https://img2.591.com.tw/house/2026/02/27/177218357123448800.jpg!1000x.water2.jpg|*|https://img1.591.com.tw/house/2026/02/27/177218357128955803.jpg!1000x.water2.jpg|*|https://img2.591.com.tw/house/2026/02/27/177218357132442001.jpg!1000x.water2.jpg|*|https://img2.591.com.tw/house/2026/02/27/177218357129080407.jpg!1000x.water2.jpg|*|https://img1.591.com.tw/house/2026/02/27/177218357133344009.jpg!1000x.water2.jpg|*|https://img2.591.com.tw/house/2026/02/27/177218357173583205.jpg!1000x.water2.jpg|*|https://img2.591.com.tw/house/2026/02/27/177218357190753006.jpg!1000x.water2.jpg|*|https://img2.591.com.tw/house/2026/02/27/177218357148972808.jpg!1000x.water2.jpg|*|https://img2.591.com.tw/house/2026/02/27/177218357156645203.jpg!1000x.water2.jpg|*|https://img2.591.com.tw/house/2026/02/27/177218357163815505.jpg!1000x.water2.jpg|*|https://img2.591.com.tw/house/2026/02/27/177218357163005107.jpg!1000x.water2.jpg|*|https://img1.591.com.tw/house/2026/02/27/177218357159420006.jpg!1000x.water2.jpg|*|https://img1.591.com.tw/house/2026/02/27/177218357163268203.jpg!1000x.water2.jpg|*|https://img1.591.com.tw/house/2026/02/27/177218359248062002.jpg!1000x.water2.jpg|*|https://hp1.591.com.tw/house/map/453b36c00f75712fc302481067aa0a85.png",
+    "maxphoto": "https://img1.591.com.tw/house/2026/03/22/177419009132752907.png!x600.water2.png|*|https://img2.591.com.tw/house/2026/02/27/177218357119566207.jpg!x600.water2.jpg|*|https://img1.591.com.tw/house/2026/02/27/177218357123448800.jpg!x600.water2.jpg|*|https://img1.591.com.tw/house/2026/02/27/177218357128955803.jpg!x600.water2.jpg|*|https://img1.591.com.tw/house/2026/02/27/177218357132442001.jpg!x600.water2.jpg|*|https://img2.591.com.tw/house/2026/02/27/177218357129080407.jpg!x600.water2.jpg|*|https://img1.591.com.tw/house/2026/02/27/177218357133344009.jpg!x600.water2.jpg|*|https://img2.591.com.tw/house/2026/02/27/177218357173583205.jpg!x600.water2.jpg|*|https://img1.591.com.tw/house/2026/02/27/177218357190753006.jpg!x600.water2.jpg|*|https://img1.591.com.tw/house/2026/02/27/177218357148972808.jpg!x600.water2.jpg|*|https://img2.591.com.tw/house/2026/02/27/177218357156645203.jpg!x600.water2.jpg|*|https://img2.591.com.tw/house/2026/02/27/177218357163815505.jpg!x600.water2.jpg|*|https://img2.591.com.tw/house/2026/02/27/177218357163005107.jpg!x600.water2.jpg|*|https://img1.591.com.tw/house/2026/02/27/177218357159420006.jpg!x600.water2.jpg|*|https://img1.591.com.tw/house/2026/02/27/177218357163268203.jpg!x600.water2.jpg|*|https://img2.591.com.tw/house/2026/02/27/177218359248062002.jpg!x600.water2.jpg|*|https://hp1.591.com.tw/house/map/4ca5aee0d97c79d688f9e816dacdacf2.png",
+    "photoalt": "|*||*||*||*||*||*||*||*||*||*||*||*||*||*||*||*|",
+    "photoinfo": [
+      {
+        "photoid": "468602767",
+        "photo": "https://img2.591.com.tw/house/2026/03/22/177419009132752907.png!1000x.water2.png",
+        "maxphoto": "https://img1.591.com.tw/house/2026/03/22/177419009132752907.png!x600.water2.png",
+        "photoalt": "",
+        "is_full": "0",
+        "arround_url": "",
+        "video": "",
+        "video_play_count": "0",
+        "type": "4"
+      },
+      {
+        "photoid": "464105593",
+        "photo": "https://img2.591.com.tw/house/2026/02/27/177218357119566207.jpg!1000x.water2.jpg",
+        "maxphoto": "https://img2.591.com.tw/house/2026/02/27/177218357119566207.jpg!x600.water2.jpg",
+        "photoalt": "",
+        "is_full": "0",
+        "arround_url": "",
+        "video": "",
+        "video_play_count": "0",
+        "type": "4"
+      },
+      {
+        "photoid": "464105597",
+        "photo": "https://img2.591.com.tw/house/2026/02/27/177218357123448800.jpg!1000x.water2.jpg",
+        "maxphoto": "https://img1.591.com.tw/house/2026/02/27/177218357123448800.jpg!x600.water2.jpg",
+        "photoalt": "",
+        "is_full": "0",
+        "arround_url": "",
+        "video": "",
+        "video_play_count": "0",
+        "type": "4"
+      },
+      {
+        "photoid": "464105598",
+        "photo": "https://img1.591.com.tw/house/2026/02/27/177218357128955803.jpg!1000x.water2.jpg",
+        "maxphoto": "https://img1.591.com.tw/house/2026/02/27/177218357128955803.jpg!x600.water2.jpg",
+        "photoalt": "",
+        "is_full": "0",
+        "arround_url": "",
+        "video": "",
+        "video_play_count": "0",
+        "type": "4"
+      },
+      {
+        "photoid": "464105594",
+        "photo": "https://img2.591.com.tw/house/2026/02/27/177218357132442001.jpg!1000x.water2.jpg",
+        "maxphoto": "https://img1.591.com.tw/house/2026/02/27/177218357132442001.jpg!x600.water2.jpg",
+        "photoalt": "",
+        "is_full": "0",
+        "arround_url": "",
+        "video": "",
+        "video_play_count": "0",
+        "type": "4"
+      },
+      {
+        "photoid": "464105596",
+        "photo": "https://img2.591.com.tw/house/2026/02/27/177218357129080407.jpg!1000x.water2.jpg",
+        "maxphoto": "https://img2.591.com.tw/house/2026/02/27/177218357129080407.jpg!x600.water2.jpg",
+        "photoalt": "",
+        "is_full": "0",
+        "arround_url": "",
+        "video": "",
+        "video_play_count": "0",
+        "type": "4"
+      },
+      {
+        "photoid": "464105595",
+        "photo": "https://img1.591.com.tw/house/2026/02/27/177218357133344009.jpg!1000x.water2.jpg",
+        "maxphoto": "https://img1.591.com.tw/house/2026/02/27/177218357133344009.jpg!x600.water2.jpg",
+        "photoalt": "",
+        "is_full": "0",
+        "arround_url": "",
+        "video": "",
+        "video_play_count": "0",
+        "type": "4"
+      },
+      {
+        "photoid": "464105605",
+        "photo": "https://img2.591.com.tw/house/2026/02/27/177218357173583205.jpg!1000x.water2.jpg",
+        "maxphoto": "https://img2.591.com.tw/house/2026/02/27/177218357173583205.jpg!x600.water2.jpg",
+        "photoalt": "",
+        "is_full": "0",
+        "arround_url": "",
+        "video": "",
+        "video_play_count": "0",
+        "type": "4"
+      },
+      {
+        "photoid": "464105606",
+        "photo": "https://img2.591.com.tw/house/2026/02/27/177218357190753006.jpg!1000x.water2.jpg",
+        "maxphoto": "https://img1.591.com.tw/house/2026/02/27/177218357190753006.jpg!x600.water2.jpg",
+        "photoalt": "",
+        "is_full": "0",
+        "arround_url": "",
+        "video": "",
+        "video_play_count": "0",
+        "type": "4"
+      },
+      {
+        "photoid": "464105600",
+        "photo": "https://img2.591.com.tw/house/2026/02/27/177218357148972808.jpg!1000x.water2.jpg",
+        "maxphoto": "https://img1.591.com.tw/house/2026/02/27/177218357148972808.jpg!x600.water2.jpg",
+        "photoalt": "",
+        "is_full": "0",
+        "arround_url": "",
+        "video": "",
+        "video_play_count": "0",
+        "type": "4"
+      },
+      {
+        "photoid": "464105602",
+        "photo": "https://img2.591.com.tw/house/2026/02/27/177218357156645203.jpg!1000x.water2.jpg",
+        "maxphoto": "https://img2.591.com.tw/house/2026/02/27/177218357156645203.jpg!x600.water2.jpg",
+        "photoalt": "",
+        "is_full": "0",
+        "arround_url": "",
+        "video": "",
+        "video_play_count": "0",
+        "type": "4"
+      },
+      {
+        "photoid": "464105603",
+        "photo": "https://img2.591.com.tw/house/2026/02/27/177218357163815505.jpg!1000x.water2.jpg",
+        "maxphoto": "https://img2.591.com.tw/house/2026/02/27/177218357163815505.jpg!x600.water2.jpg",
+        "photoalt": "",
+        "is_full": "0",
+        "arround_url": "",
+        "video": "",
+        "video_play_count": "0",
+        "type": "4"
+      },
+      {
+        "photoid": "464105599",
+        "photo": "https://img2.591.com.tw/house/2026/02/27/177218357163005107.jpg!1000x.water2.jpg",
+        "maxphoto": "https://img2.591.com.tw/house/2026/02/27/177218357163005107.jpg!x600.water2.jpg",
+        "photoalt": "",
+        "is_full": "0",
+        "arround_url": "",
+        "video": "",
+        "video_play_count": "0",
+        "type": "4"
+      },
+      {
+        "photoid": "464105601",
+        "photo": "https://img1.591.com.tw/house/2026/02/27/177218357159420006.jpg!1000x.water2.jpg",
+        "maxphoto": "https://img1.591.com.tw/house/2026/02/27/177218357159420006.jpg!x600.water2.jpg",
+        "photoalt": "",
+        "is_full": "0",
+        "arround_url": "",
+        "video": "",
+        "video_play_count": "0",
+        "type": "4"
+      },
+      {
+        "photoid": "464105604",
+        "photo": "https://img1.591.com.tw/house/2026/02/27/177218357163268203.jpg!1000x.water2.jpg",
+        "maxphoto": "https://img1.591.com.tw/house/2026/02/27/177218357163268203.jpg!x600.water2.jpg",
+        "photoalt": "",
+        "is_full": "0",
+        "arround_url": "",
+        "video": "",
+        "video_play_count": "0",
+        "type": "4"
+      },
+      {
+        "photoid": "464105750",
+        "photo": "https://img1.591.com.tw/house/2026/02/27/177218359248062002.jpg!1000x.water2.jpg",
+        "maxphoto": "https://img2.591.com.tw/house/2026/02/27/177218359248062002.jpg!x600.water2.jpg",
+        "photoalt": "",
+        "is_full": "0",
+        "arround_url": "",
+        "video": "",
+        "video_play_count": "0",
+        "type": "4"
+      }
+    ],
+    "photo_sort": "2,6,1,4,3,5",
+    "photo_type_name": {
+      "1": "影片",
+      "2": "VR",
+      "3": "格局圖",
+      "4": "圖片",
+      "5": "地圖"
+    },
+    "move_house": "",
+    "money_evaluate": "",
+    "lat": "25.0118610",
+    "lng": "121.2219940",
+    "share1": "桃園市中壢區，住宅出售，3房2廳2衛，1,688萬元，詳情：",
+    "share2": "https://www.591.com.tw/2S?salt=STMoK&s=t",
+    "share3": "來自【591中古屋】",
+    "mortgage_rate": "0.81",
+    "mortgage_info": "首付約338萬，月還款42,253元",
+    "plan_act_info": "",
+    "plan_act_url": "",
+    "feat_tag": [
+      "近捷運"
+    ],
+    "info": [
+      {
+        "name": "單價",
+        "value": "45.44萬/坪"
+      },
+      {
+        "name": "現況",
+        "value": "住宅"
+      },
+      {
+        "name": "法定用途",
+        "value": "依謄本為主"
+      },
+      {
+        "name": "樓層",
+        "value": "8F/15F"
+      },
+      {
+        "name": "裝潢",
+        "value": "尚未裝潢"
+      },
+      {
+        "name": "帶租約",
+        "value": "否"
+      },
+      {
+        "name": "屋齡",
+        "value": "8個月"
+      },
+      {
+        "name": "型態",
+        "value": "電梯大樓"
+      },
+      {
+        "name": "公設比",
+        "value": "35%"
+      }
+    ],
+    "showAd": "",
+    "wechat_id": "2030565",
+    "head_img": "",
+    "im_uid": "2030565",
+    "im_name": "涂先生",
+    "foot_news_list": [
+      {
+        "week_browse": "551",
+        "first_tag": "統計資料",
+        "jump_url": "https://m.591.com.tw/v2/news/12300",
+        "share_num": "8",
+        "show_time": "1776223825",
+        "tag": "新聞",
+        "browse_num": "585",
+        "praise_num_txt": "4",
+        "jump_id": "12300",
+        "author_type": "0",
+        "type_name": "即時新聞",
+        "share_num_txt": "8",
+        "type": "1",
+        "browse_num_txt": "585",
+        "summary": "財政部最新房地交易相關稅收統計，其中，契稅年增逾一成，土增稅年減幅收斂，房地合一稅則維持小幅衰退。又以北市為唯一房地三稅同步正成長的直轄市。",
+        "time": "2026-04-15",
+        "show_type": "1",
+        "title": "房市回溫? 北市房地三稅全面成長",
+        "cover": [
+          "https://img1.591.com.tw/house/2026/04/15/177622196368990606.jpg!240x170.jpg"
+        ],
+        "praise_num": "4"
+      },
+      {
+        "type": "1",
+        "week_browse": "5924",
+        "first_tag": "社會住宅",
+        "author_type": "0",
+        "show_time": "1776311760",
+        "tag": "新聞",
+        "share_num_txt": "62",
+        "jump_url": "https://m.591.com.tw/v2/news/12302",
+        "cover": [
+          "https://img1.591.com.tw/house/2026/04/16/177630825535877707.jpg!240x170.jpg"
+        ],
+        "browse_num_txt": "5989",
+        "share_num": "62",
+        "praise_num": "11",
+        "show_type": "1",
+        "summary": "根據永慶房產集團統計，七大都會區預售屋總價中位數僅桃園與新竹縣市下修，其餘五都仍持續上揚，其中台南漲幅達11.7%居冠。",
+        "browse_num": "5989",
+        "jump_id": "12302",
+        "title": "買氣冷、預售總價不跌 台南一戶多145萬元",
+        "type_name": "即時新聞",
+        "praise_num_txt": "11",
+        "time": "2026-04-16"
+      },
+      {
+        "cover": [
+          "https://img2.591.com.tw/house/2026/04/17/177641382550721906.jpg!240x170.jpg"
+        ],
+        "praise_num": "6",
+        "browse_num": "4259",
+        "first_tag": "社會住宅",
+        "author_type": "0",
+        "jump_id": "12309",
+        "type_name": "即時新聞",
+        "share_num": "163",
+        "type": "1",
+        "praise_num_txt": "6",
+        "tag": "新聞",
+        "jump_url": "https://m.591.com.tw/v2/news/12309",
+        "summary": "根據財政部與各區國稅局資料，透過AI大數據分析，近年未申報租金所得案件查獲率持續提升，特別是囤房大戶及「三無房東」更成為重點查核對象。",
+        "title": "AI查稅啟動！囤房大戶、三無房東留意了",
+        "show_type": "1",
+        "browse_num_txt": "4259",
+        "week_browse": "487",
+        "show_time": "1776414620",
+        "share_num_txt": "163",
+        "time": "2026-04-17"
+      }
+    ],
+    "econ_name": "誠逸不動產有限公司",
+    "is_service_fee": "1",
+    "company_name": "永慶不動產(加盟店)",
+    "sub_company_name": "青埔領航中悅加盟店",
+    "medium_face": "https://img2.591.com.tw/user/2026/03/22/2030565/1774172972803.jpg!200x200.jpg",
+    "approve_status": "pass",
+    "landoffice_certificate_number": "",
+    "certificate_type": "ShopAssistant",
+    "econ_number": "",
+    "team_shop_id": "",
+    "line": "https://line.me/ti/p/mjGdjPQdtK",
+    "edit_status": "0",
+    "old_kind": "0",
+    "origin_floor": "8",
+    "device": "touch",
+    "is_business": "",
+    "appVersionCode": "",
+    "saletype": "1",
+    "no_statis": "",
+    "good_house_tags": [
+      {
+        "icon": "https://www.591.com.tw/images/api/mobile/detail/icon/goodHouseIcon1.png",
+        "tag": "售價低",
+        "desc": "比同社區同格局的房屋，平均售價低219萬"
+      },
+      {
+        "icon": "https://www.591.com.tw/images/api/mobile/detail/icon/goodHouseIcon5.png",
+        "tag": "交通便利",
+        "desc": "距離捷運高鐵桃園站站736公尺"
+      }
+    ],
+    "house_plan_type": "",
+    "is_agent": "",
+    "is_super": "",
+    "label_type": "1",
+    "bid_rank": "99",
+    "agent_pic": "",
+    "community_image": [],
+    "community_address": {
+      "name": "麗江星漾",
+      "section_name": "桃園市",
+      "street_name": "中壢區青商路",
+      "type": "surround",
+      "type_name": "配備"
+    },
+    "price_data": {
+      "type": "6",
+      "name": "最新成交41.7萬/坪"
+    },
+    "community_age": "",
+    "multi_floor_tpl": "2",
+    "floor_type": "1",
+    "floor2": "0",
+    "groud_area_tpl": "2",
+    "ground_area_type": "1"
+  },
+  "meta": {
+    "title": "青埔高鐵A18｜麗江星漾｜低總價｜棟距景觀｜3房2衛｜平車 - 591售屋網",
+    "keywords": "青埔高鐵A18｜麗江星漾｜低總價｜棟距景觀｜3房2衛｜平車,桃園市中壢區住宅出售,591售屋網",
+    "description": "桃園市中壢區住宅出售：總價?萬，面積?坪,位於青商路，更多出售詳情，就上591售屋網！",
+    "ogimage": "https://img1.591.com.tw/house/2026/03/22/177419009132752907.png!750x666.png"
+  },
+  "gtm_detail_data": {
+    "item_id": "S19708683",
+    "item_name": "青埔高鐵A18｜麗江星漾｜低總價｜棟距景觀｜3房2衛｜平車",
+    "region_name": "桃園市",
+    "section_name": "中壢區",
+    "kind_name": "住宅",
+    "price_name": "1688",
+    "unit_price_name": "45",
+    "shape_name": "電梯大樓",
+    "layout_name": "3",
+    "area_name": "37.15",
+    "house_age_name": "0",
+    "direction_name": "",
+    "floor_name": "8",
+    "fitment_name": "尚未裝潢",
+    "life_name": ""
+  },
+  "post_days": "54",
+  "last_login_days": "",
+  "update": "2026-04-18 11:52:59",
+  "is_login_time_out": "1"
+}
