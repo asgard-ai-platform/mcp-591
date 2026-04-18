@@ -1,9 +1,18 @@
 import re
 
 from fastmcp import FastMCP
+
 from mcp_591.client import Client591
 from mcp_591.constants import (
-    AGES, AREAS, KINDS, PATTERNS, REGIONS, SECTIONS, SECTIONS_BY_REGION, SHAPES, TOILETS,
+    AGES,
+    AREAS,
+    KINDS,
+    PATTERNS,
+    REGIONS,
+    SECTIONS,
+    SECTIONS_BY_REGION,
+    SHAPES,
+    TOILETS,
 )
 
 mcp = FastMCP("mcp-591")
@@ -62,7 +71,7 @@ def search_sale(
     """
     region_id = _resolve(REGIONS, region, "縣市")
     if region_id is None:
-        raise ValueError(f"縣市不可為空")
+        raise ValueError("縣市不可為空")
 
     if section:
         section_ids = [

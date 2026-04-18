@@ -117,7 +117,17 @@ class Client591:
 
 if __name__ == "__main__":
     import sys
-    from mcp_591.constants import REGIONS, SECTIONS, SECTIONS_BY_REGION, SHAPES, PATTERNS, TOILETS, AREAS, AGES
+
+    from mcp_591.constants import (
+        AGES,
+        AREAS,
+        PATTERNS,
+        REGIONS,
+        SECTIONS,
+        SECTIONS_BY_REGION,
+        SHAPES,
+        TOILETS,
+    )
 
     # Usage: client.py <縣市> [區域] [型態,...] [格局,...] [衛浴,...] [坪數] [屋齡]
     # e.g.  client.py 桃園市 中壢區 電梯大樓 3房 2衛 30_40 _5
@@ -194,7 +204,11 @@ if __name__ == "__main__":
         area_str=area_str, age_str=age_str, page_size=5,
     )
     listings = [x for x in result.get("data", []) if "post_id" in x]
-    filters = ",".join(filter(None, [",".join(shape_names), ",".join(pattern_names), ",".join(toilet_names), AREAS.get(area_str, "") if area_str else "", AGES.get(age_str, "") if age_str else ""]))
+    filters = ",".join(filter(None, [
+        ",".join(shape_names), ",".join(pattern_names), ",".join(toilet_names),
+        AREAS.get(area_str, "") if area_str else "",
+        AGES.get(age_str, "") if age_str else "",
+    ]))
     label = f" [{filters}]" if filters else ""
     print(f"{region_name}{section_name or '全區'}{label}  totalRows: {result.get('totalRows')}")
     for h in listings:
