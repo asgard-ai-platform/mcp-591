@@ -44,6 +44,7 @@ class Client591:
         shape_ids: list[int] | None = None,
         pattern_ids: list[int] | None = None,
         toilet_ids: list[int] | None = None,
+        area_str: str | None = None,
     ) -> dict:
         """Search for sale listings.
 
@@ -57,6 +58,7 @@ class Client591:
             shape_ids: Building shape. e.g. [2] = 電梯大樓 (see SHAPES in constants)
             pattern_ids: Room count. e.g. [3] = 3房, [5] = 5房以上 (see PATTERNS in constants)
             toilet_ids: Bathroom count. e.g. [2] = 2衛 (see TOILETS in constants)
+            area_str: Area range key from AREAS. e.g. "30_40" = 30~40坪
         """
         params: dict = {
             "type": "sale",
@@ -79,6 +81,8 @@ class Client591:
             params["pattern_str"] = ",".join(str(i) for i in pattern_ids)
         if toilet_ids is not None:
             params["toilet_str"] = ",".join(str(i) for i in toilet_ids)
+        if area_str is not None:
+            params["area_str"] = area_str
 
         resp = self._session.get(self._SALE_URL, params=params)
         resp.raise_for_status()
@@ -87,15 +91,16 @@ class Client591:
 
 if __name__ == "__main__":
     import sys
-    from mcp_591.constants import REGIONS, SECTIONS, SECTIONS_BY_REGION, SHAPES, PATTERNS, TOILETS
+    from mcp_591.constants import REGIONS, SECTIONS, SECTIONS_BY_REGION, SHAPES, PATTERNS, TOILETS, AREAS
 
-    # Usage: client.py <縣市> [區域] [型態,...] [格局,...] [衛浴,...]
-    # e.g.  client.py 桃園市 中壢區 透天厝 3房,4房 2衛
+    # Usage: client.py <縣市> [區域] [型態,...] [格局,...] [衛浴,...] [坪數]
+    # e.g.  client.py 桃園市 中壢區 電梯大樓 3房 2衛 30_40
     region_name = sys.argv[1] if len(sys.argv) > 1 else "桃園市"
     section_name = sys.argv[2] if len(sys.argv) > 2 else None
-    shape_names = sys.argv[3].split(",") if len(sys.argv) > 3 else []
-    pattern_names = sys.argv[4].split(",") if len(sys.argv) > 4 else []
-    toilet_names = sys.argv[5].split(",") if len(sys.argv) > 5 else []
+    shape_names = sys.argv[3].split(",") if len(sys.argv) > 3 and sys.argv[3] else []
+    pattern_names = sys.argv[4].split(",") if len(sys.argv) > 4 and sys.argv[4] else []
+    toilet_names = sys.argv[5].split(",") if len(sys.argv) > 5 and sys.argv[5] else []
+    area_arg = sys.argv[6] if len(sys.argv) > 6 and sys.argv[6] else None
 
     region_id = next((rid for rid, name in REGIONS.items() if name == region_name), None)
     if region_id is None:
@@ -139,13 +144,22 @@ if __name__ == "__main__":
             print("可用：", list(TOILETS.values()))
             sys.exit(1)
 
+    area_str = None
+    if area_arg:
+        if area_arg not in AREAS:
+            print(f"找不到坪數區間：{area_arg}")
+            print("可用：", list(AREAS.keys()))
+            sys.exit(1)
+        area_str = area_arg
+
     client = Client591()
     result = client.search_sale(
         region_id=region_id, section_ids=section_ids, kind=9,
-        shape_ids=shape_ids, pattern_ids=pattern_ids, toilet_ids=toilet_ids, page_size=5,
+        shape_ids=shape_ids, pattern_ids=pattern_ids, toilet_ids=toilet_ids,
+        area_str=area_str, page_size=5,
     )
     listings = [x for x in result.get("data", []) if "post_id" in x]
-    filters = ",".join(filter(None, [",".join(shape_names), ",".join(pattern_names), ",".join(toilet_names)]))
+    filters = ",".join(filter(None, [",".join(shape_names), ",".join(pattern_names), ",".join(toilet_names), AREAS.get(area_str, "") if area_str else ""]))
     label = f" [{filters}]" if filters else ""
     print(f"{region_name}{section_name or '全區'}{label}  totalRows: {result.get('totalRows')}")
     for h in listings:

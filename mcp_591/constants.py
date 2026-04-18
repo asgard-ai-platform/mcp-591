@@ -1,6 +1,18 @@
 # Region, section, and property kind ID mappings scraped from 591.com.tw
 # Key: region/section ID (int), Value: Chinese name
 
+# Predefined area ranges (坪). Custom ranges not supported by the API.
+AREAS: dict[str, str] = {
+    "10_20":  "10~20坪",
+    "20_30":  "20~30坪",
+    "30_40":  "30~40坪",
+    "40_50":  "40~50坪",
+    "50_60":  "50~60坪",
+    "60_100": "60~100坪",
+    "100_150": "100~150坪",
+    "150_200": "150~200坪",
+}
+
 PATTERNS: dict[int, str] = {
     1: "1房",
     2: "2房",
