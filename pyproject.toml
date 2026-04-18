@@ -1,7 +1,17 @@
 [project]
 name = "mcp-591"
 version = "0.1.0"
-description = "Add your description here"
+description = "MCP server for 591 rental listings"
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "fastmcp",
+    "requests",
+]
+
+[project.scripts]
+mcp-591 = "mcp_591.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

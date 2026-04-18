@@ -1,6 +1,4 @@
-def main():
-    print("Hello from mcp-591!")
-
+from mcp_591.server import main
 
 if __name__ == "__main__":
     main()
