@@ -14,6 +14,7 @@ _MOBILE_UA = (
 
 class Client591:
     _SALE_URL = "https://bff-house.591.com.tw/v1/touch/sale/list"
+    _DETAIL_URL = "https://bff-house.591.com.tw/v1/touch/sale/detail"
 
     def __init__(self, device_id: str | None = None) -> None:
         self._device_id = device_id or uuid.uuid4().hex
@@ -89,6 +90,23 @@ class Client591:
             params["age_str"] = age_str
 
         resp = self._session.get(self._SALE_URL, params=params)
+        resp.raise_for_status()
+        return resp.json()
+
+    def get_sale_detail(self, post_id: str | int) -> dict:
+        """Fetch full detail for a sale listing.
+
+        Args:
+            post_id: Listing ID from search results. e.g. 19708683 or "S19708683"
+        """
+        id_str = str(post_id)
+        if not id_str.startswith("S"):
+            id_str = f"S{id_str}"
+        resp = self._session.get(self._DETAIL_URL, params={
+            "id": id_str,
+            "device": "touch",
+            "device_id": self._device_id,
+        })
         resp.raise_for_status()
         return resp.json()
 
