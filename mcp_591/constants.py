@@ -1,5 +1,16 @@
-# Region and section ID mappings scraped from 591.com.tw
+# Region, section, and property kind ID mappings scraped from 591.com.tw
 # Key: region/section ID (int), Value: Chinese name
+
+KINDS: dict[int, str] = {
+    5: "店面",
+    6: "辦公",
+    7: "廠房",
+    8: "車位",
+    9: "住宅",
+    10: "套房",
+    11: "土地",
+    12: "住辦",
+}
 
 REGIONS: dict[int, str] = {
     1: "台北市",

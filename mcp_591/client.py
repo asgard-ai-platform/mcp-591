@@ -75,7 +75,7 @@ class Client591:
 
 if __name__ == "__main__":
     import sys
-    from mcp_591.regions import REGIONS, SECTIONS, SECTIONS_BY_REGION
+    from mcp_591.constants import REGIONS, SECTIONS, SECTIONS_BY_REGION
 
     region_name = sys.argv[1] if len(sys.argv) > 1 else "桃園市"
     section_name = sys.argv[2] if len(sys.argv) > 2 else None
