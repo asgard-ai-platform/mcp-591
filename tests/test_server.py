@@ -3,7 +3,13 @@ from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 from mcp_591.client import Client591
-from mcp_591.server import _filter_listing, _LISTING_KEYS, _strip_html, search_sale, get_sale_detail
+from mcp_591.server import (
+    _LISTING_KEYS,
+    _filter_listing,
+    _strip_html,
+    get_sale_detail,
+    search_sale,
+)
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
