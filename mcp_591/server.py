@@ -131,7 +131,9 @@ def get_sale_detail(post_id: str) -> dict:
         post_id: 物件 ID，來自 search_sale 結果的 post_id 欄位。
     """
     resp = _client.get_sale_detail(post_id)
-    d = resp.get("data", {})
+    d = resp.get("data")
+    if not isinstance(d, dict) or not d:
+        raise ValueError(f"Listing {post_id} not found (may be delisted)")
     return {
         "title": d.get("title"),
         "price": d.get("price"),
@@ -232,8 +234,11 @@ def search_rent(
 
     data = result.get("data", {})
     listings = [_filter_rent_listing(item) for item in data.get("items", [])]
+    # 591 rent API returns `total` as a string; coerce to int so callers get the
+    # same type as search_sale.
+    total = data.get("total")
     return {
-        "total_rows": data.get("total"),
+        "total_rows": int(total) if total is not None else None,
         "next_first_row": data.get("firstRow"),
         "listings": listings,
     }
@@ -247,7 +252,9 @@ def get_rent_detail(post_id: str) -> dict:
         post_id: 物件 ID，來自 search_rent 結果的 post_id 欄位。
     """
     resp = _client.get_rent_detail(post_id)
-    d = resp.get("data", {})
+    d = resp.get("data")
+    if not isinstance(d, dict) or not d:
+        raise ValueError(f"Listing {post_id} not found (may be delisted)")
 
     info = {item["key"]: item["value"] for item in d.get("info", [])}
     house_info = {item["key"]: item["value"] for item in d.get("houseInfo", {}).get("data", [])}
