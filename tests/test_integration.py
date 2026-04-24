@@ -6,7 +6,7 @@ Excluded from default test runs.
 import pytest
 
 from mcp_591.client import Client591
-from mcp_591.server import get_sale_detail, search_sale
+from mcp_591.server import get_rent_detail, get_sale_detail, search_rent, search_sale
 
 # 桃園市中壢區, 3房, 電梯大樓
 _REGION = "桃園市"
@@ -27,6 +27,14 @@ def live_post_id(client):
     listings = [x for x in result["data"] if "post_id" in x]
     assert listings, "no live listings found for fixture"
     return str(listings[0]["post_id"])
+
+
+@pytest.fixture(scope="module")
+def live_rent_post_id(client):
+    result = client.search_rent(region_id=6, section_ids=[67])
+    items = result.get("data", {}).get("items", [])
+    assert items, "no live rent listings found for fixture"
+    return str(items[0]["id"])
 
 
 # ── Client ────────────────────────────────────────────────────────────────────
@@ -111,3 +119,69 @@ class TestToolGetSaleDetail:
         remark = result.get("remark", "")
         assert "<" not in remark
         assert "&nbsp;" not in remark
+
+
+# ── Rent ──────────────────────────────────────────────────────────────────────
+
+@pytest.mark.integration
+class TestClientSearchRent:
+    def test_schema(self, client):
+        result = client.search_rent(region_id=6, section_ids=[67])
+        data = result["data"]
+        # rent API returns total as string, unlike sale which returns int
+        assert int(data["total"]) > 0
+        items = data["items"]
+        assert len(items) > 0
+
+        h = items[0]
+        assert isinstance(h["id"], (str, int))
+        assert isinstance(h["title"], str)
+        assert isinstance(h["price"], str)
+        assert isinstance(h["layoutStr"], str)
+        assert isinstance(h["area_name"], str)
+
+    def test_region_filter_works(self, client):
+        result = client.search_rent(region_id=6, section_ids=[67])
+        for h in result["data"]["items"]:
+            assert str(h["regionid"]) == "6"
+            assert str(h["sectionid"]) == "67"
+
+
+@pytest.mark.integration
+class TestClientGetRentDetail:
+    def test_schema(self, client, live_rent_post_id):
+        result = client.get_rent_detail(live_rent_post_id)
+        assert result["status"] == 1
+        d = result["data"]
+        assert isinstance(d["title"], str)
+        assert isinstance(d["price"], str)
+
+
+@pytest.mark.integration
+class TestToolSearchRent:
+    def test_schema(self):
+        result = search_rent(_REGION, section=_SECTION)
+        # rent tool passes through 591's string total verbatim
+        assert int(result["total_rows"]) > 0
+        assert len(result["listings"]) > 0
+
+    def test_listing_fields(self):
+        result = search_rent(_REGION, section=_SECTION)
+        h = result["listings"][0]
+        for key in ("post_id", "title", "price", "price_unit", "area_name", "kind_name"):
+            assert key in h, f"missing key: {key}"
+
+    def test_no_noise_fields(self):
+        result = search_rent(_REGION, section=_SECTION)
+        for h in result["listings"]:
+            for noise in ("photoList", "url", "preferred", "price_per", "cover", "mvip"):
+                assert noise not in h
+
+
+@pytest.mark.integration
+class TestToolGetRentDetail:
+    def test_schema(self, live_rent_post_id):
+        result = get_rent_detail(live_rent_post_id)
+        for key in ("title", "price", "price_unit", "kind", "area", "floor",
+                    "region", "section", "address", "lat", "lng"):
+            assert key in result, f"missing key: {key}"
