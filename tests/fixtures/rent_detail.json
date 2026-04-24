@@ -1,0 +1,1177 @@
+{
+  "status": 1,
+  "msg": "",
+  "data": {
+    "version": "new",
+    "title": "Lily🧸A18青埔捷運高鐵國家大院3房含車管",
+    "status": "open",
+    "deposit": "押金二個月",
+    "kind": 1,
+    "relieved": 0,
+    "regionId": 6,
+    "sectionId": 67,
+    "shareInfo": {
+      "url": "https://www.591.com.tw/1R?salt=SxzSD&s=",
+      "from": "來自【591】",
+      "title": "桃園市中壢區，整層住家出租，32000元/月，詳情："
+    },
+    "meta": {
+      "title": "{{title}} - 591租屋網",
+      "keywords": "{{title}},桃園市中壢區整層住家出租,591租屋網",
+      "description": "桃園市中壢區整層住家出租：租金?元/月，面積?坪，位於青峰路一段123號，更多出租詳情，就上591租屋網！",
+      "ogimage": "https://img2.591.com.tw/house/2026/03/18/177380828122784002.jpg!730x460.water2.jpg"
+    },
+    "headInfo": "3房1廳2衛·32,000元/月",
+    "navData": [
+      {
+        "title": "詳情",
+        "key": "detail",
+        "active": 1
+      },
+      {
+        "title": "屋況介紹",
+        "key": "remark",
+        "active": 1
+      },
+      {
+        "title": "周邊配套",
+        "key": "surround",
+        "active": 1
+      },
+      {
+        "title": "推薦",
+        "key": "recom",
+        "active": 0
+      }
+    ],
+    "tags": [
+      {
+        "id": 2,
+        "value": "近捷運"
+      },
+      {
+        "id": 16,
+        "value": "新上架"
+      },
+      {
+        "id": 3,
+        "value": "拎包入住"
+      },
+      {
+        "id": 10,
+        "value": "有電梯"
+      },
+      {
+        "id": 5,
+        "value": "隨時可遷入"
+      },
+      {
+        "id": 6,
+        "value": "可開伙"
+      },
+      {
+        "id": 7,
+        "value": "可養寵物"
+      },
+      {
+        "id": 8,
+        "value": "有車位"
+      },
+      {
+        "id": 20,
+        "value": "租金補貼"
+      },
+      {
+        "id": 22,
+        "value": "可報稅"
+      },
+      {
+        "id": 23,
+        "value": "可入籍"
+      }
+    ],
+    "price": "32,000",
+    "priceUnit": "元/月",
+    "containCost": [
+      "租金包含管理費",
+      "清潔費",
+      "車位費"
+    ],
+    "info": [
+      {
+        "name": "格局",
+        "value": "3房1廳2衛",
+        "key": "layout"
+      },
+      {
+        "name": "使用坪數",
+        "value": "19坪",
+        "key": "area"
+      },
+      {
+        "name": "樓層",
+        "value": "14F/16F",
+        "key": "floor"
+      },
+      {
+        "name": "型態",
+        "value": "電梯大樓",
+        "key": "shape"
+      }
+    ],
+    "publish": {
+      "id": 0,
+      "name": "",
+      "key": "",
+      "postTime": "此房屋在3天前發佈",
+      "updateTime": ""
+    },
+    "address": {
+      "data": "中壢區青峰路一段123號",
+      "value": "潤隆國家大院 中壢區青峰路一段123號",
+      "lat": "25.0160495",
+      "lng": "121.2193175",
+      "traffic": "",
+      "station": "",
+      "distance": ""
+    },
+    "houseInfo": {
+      "active": 1,
+      "data": [
+        {
+          "name": "租期",
+          "value": "一年",
+          "key": "leaseTime",
+          "cate": 1,
+          "help": "",
+          "alias": ""
+        },
+        {
+          "name": "入住",
+          "value": "可隨時遷入",
+          "key": "comeDate",
+          "cate": 1,
+          "help": "",
+          "alias": ""
+        },
+        {
+          "name": "身份",
+          "value": "學生/上班族/家庭",
+          "key": "degree",
+          "cate": 1,
+          "help": "",
+          "alias": ""
+        },
+        {
+          "name": "法定用途",
+          "value": "見使用執照",
+          "key": "purpose",
+          "cate": 2,
+          "help": "",
+          "alias": ""
+        },
+        {
+          "name": "建物面積",
+          "value": "19.09坪",
+          "key": "buildArea",
+          "cate": 2,
+          "help": "",
+          "alias": "(不含公設)"
+        },
+        {
+          "name": "寵物",
+          "value": "可養寵物",
+          "key": "pet",
+          "cate": 1,
+          "help": "",
+          "alias": ""
+        },
+        {
+          "name": "開伙",
+          "value": "可開伙",
+          "key": "cook",
+          "cate": 1,
+          "help": "",
+          "alias": ""
+        },
+        {
+          "name": "產權登記",
+          "value": "已辦理",
+          "key": "hasCertificate",
+          "cate": 2,
+          "help": "",
+          "alias": ""
+        }
+      ]
+    },
+    "service": {
+      "title": "提供設備",
+      "active": 1,
+      "facility": [
+        {
+          "key": "fridge",
+          "active": 1,
+          "name": "冰箱"
+        },
+        {
+          "key": "washer",
+          "active": 1,
+          "name": "洗衣機"
+        },
+        {
+          "key": "tv",
+          "active": 0,
+          "name": "電視"
+        },
+        {
+          "key": "cold",
+          "active": 1,
+          "name": "冷氣"
+        },
+        {
+          "key": "heater",
+          "active": 1,
+          "name": "熱水器"
+        },
+        {
+          "key": "bed",
+          "active": 1,
+          "name": "床"
+        },
+        {
+          "key": "closet",
+          "active": 1,
+          "name": "衣櫃"
+        },
+        {
+          "key": "fourth",
+          "active": 0,
+          "name": "第四台"
+        },
+        {
+          "key": "net",
+          "active": 0,
+          "name": "網路"
+        },
+        {
+          "key": "gas",
+          "active": 0,
+          "name": "天然瓦斯"
+        },
+        {
+          "key": "sofa",
+          "active": 1,
+          "name": "沙發"
+        },
+        {
+          "key": "table_chairs",
+          "active": 0,
+          "name": "桌椅"
+        },
+        {
+          "key": "balcony",
+          "active": 1,
+          "name": "1陽台"
+        },
+        {
+          "key": "lift",
+          "active": 1,
+          "name": "電梯"
+        },
+        {
+          "key": "park",
+          "active": 1,
+          "name": "平面車位"
+        }
+      ],
+      "notice": [
+        {
+          "key": "leaseTime",
+          "name": "最短一年"
+        }
+      ]
+    },
+    "preference": {
+      "title": "優選理由",
+      "active": 0,
+      "footnote": "",
+      "data": []
+    },
+    "remark": {
+      "title": "屋況介紹",
+      "key": "remark",
+      "active": 1,
+      "content": ".\r\n附近有便利商店、傳統市場、公園綠地、學校、醫療機構、夜市。\r\n本房屋近A18捷運站。"
+    },
+    "surround": {
+      "title": "周邊配套",
+      "key": "surround",
+      "active": 1,
+      "address": "潤隆國家大院 中壢區青峰路一段123號",
+      "lat": "25.0160495",
+      "lng": "121.2193175",
+      "data": [
+        {
+          "name": "交通",
+          "key": "traffic",
+          "children": [
+            {
+              "type": "subway",
+              "name": "桃園機場捷運 A18高鐵桃園站",
+              "distance": 589,
+              "distanceTxt": "距房屋約589公尺"
+            },
+            {
+              "type": "bus",
+              "name": "青昇一街口站",
+              "distance": 128,
+              "distanceTxt": "距房屋約128公尺"
+            },
+            {
+              "type": "bus",
+              "name": "民生社區站",
+              "distance": 204,
+              "distanceTxt": "距房屋約204公尺"
+            }
+          ]
+        },
+        {
+          "name": "生活",
+          "key": "live",
+          "children": [
+            {
+              "type": "restaurant",
+              "name": "青梧拉麵",
+              "distance": 69,
+              "distanceTxt": "距房屋約69公尺"
+            },
+            {
+              "type": "shop",
+              "name": "大全聯 青埔店",
+              "distance": 342,
+              "distanceTxt": "距房屋約342公尺"
+            }
+          ]
+        },
+        {
+          "name": "教育",
+          "key": "education",
+          "children": [
+            {
+              "type": "primary",
+              "name": "青埔國小",
+              "distance": 1003,
+              "distanceTxt": "距房屋約1003公尺"
+            },
+            {
+              "type": "secondary",
+              "name": "桃園市立青埔國民中學",
+              "distance": 1443,
+              "distanceTxt": "距房屋約1443公尺"
+            }
+          ]
+        }
+      ]
+    },
+    "cost": {
+      "title": "費用詳情",
+      "active": 1,
+      "data": [
+        {
+          "name": "租金含",
+          "value": "管理費、清潔費、車位費",
+          "key": "priceadd"
+        },
+        {
+          "name": "押金",
+          "value": "二個月",
+          "key": "deposit"
+        },
+        {
+          "name": "仲介費",
+          "value": "收取",
+          "key": "recmoney"
+        }
+      ]
+    },
+    "information": {
+      "title": "房屋資訊",
+      "active": 1,
+      "data": [
+        {
+          "name": "法定用途",
+          "value": "見使用執照",
+          "key": "purpose",
+          "alias": "",
+          "cate": 2
+        },
+        {
+          "name": "入住",
+          "value": "可隨時遷入",
+          "key": "comeDate",
+          "alias": "",
+          "cate": 1
+        },
+        {
+          "name": "建物面積",
+          "value": "19.09坪",
+          "key": "buildArea",
+          "alias": "(不含公設)",
+          "cate": 2
+        },
+        {
+          "name": "產權登記",
+          "value": "已辦理",
+          "key": "hasCertificate",
+          "alias": "",
+          "cate": 2
+        }
+      ]
+    },
+    "linkInfo": {
+      "avatar": "https://img1.591.com.tw/user/2023/11/02/1698911201515.jpg!100x100.jpg",
+      "chargeTxt": "$: 仲介, 收服務費",
+      "name": "李小姐",
+      "role": 3,
+      "roleName": "仲介",
+      "roleTxt": "埔田不動產股份有限公",
+      "certificateStatus": 2,
+      "certificateTxt": "經紀業：埔田不動產股份有限公",
+      "line": "https://line.me/ti/p/uBzERkUHtF",
+      "imUid": 1837636,
+      "imName": "李女士",
+      "isTransferTel": 0,
+      "mobile": "0976-079-169",
+      "phone": "",
+      "uid": 1837636,
+      "warnmsg": 0,
+      "tips": "有1人收藏了此房屋",
+      "shopVolume": 8,
+      "shopStatus": 2,
+      "shopId": 43875,
+      "rentNum": 8,
+      "saleNum": 2,
+      "skillCases": [
+        "站前A",
+        "國家大院",
+        "站前新銳"
+      ],
+      "skillWork": [
+        "店面商辦",
+        "電梯大樓",
+        "透天厝",
+        "社區住宅",
+        "行情諮詢"
+      ],
+      "isAgent": 0,
+      "isGoldAgent": 0,
+      "labelInfo": [
+        "在售物件2筆·在租物件8筆",
+        "熟悉社區·行業深耕8年"
+      ],
+      "isServiceFee": 1,
+      "isrecmoney": "收服務費"
+    },
+    "favData": {
+      "thumb": "https://img2.591.com.tw/house/2026/03/18/177380828122784002.jpg!190x150.water2.jpg",
+      "title": "Lily🧸A18青埔捷運高鐵國家大院3房含車管",
+      "layout": "3房1廳2衛",
+      "address": "桃園市中壢區青峰路一段123號",
+      "price": 32000,
+      "area": 19,
+      "kindTxt": "整層住家",
+      "posttime": 1776748067,
+      "count": 4,
+      "mvip": 0,
+      "mrecom": 1,
+      "socialHouse": "0",
+      "other": {
+        "icon": "metro",
+        "desc": "距桃園機場捷運 A18高鐵桃園站589公尺"
+      }
+    },
+    "positionRound": {
+      "title": "位置與周邊",
+      "key": "positionRound",
+      "active": 1,
+      "communityName": "潤隆國家大院",
+      "communityId": 3681795,
+      "address": "中壢區青峰路一段123號",
+      "lat": "25.0160495",
+      "lng": "121.2193175",
+      "data": [
+        {
+          "name": "交通",
+          "key": "traffic",
+          "children": [
+            {
+              "type": "subway",
+              "name": "桃園機場捷運 A18高鐵桃園站",
+              "distance": 589,
+              "distanceTxt": "距房屋約589公尺"
+            },
+            {
+              "type": "bus",
+              "name": "青昇一街口站",
+              "distance": 128,
+              "distanceTxt": "距房屋約128公尺"
+            },
+            {
+              "type": "bus",
+              "name": "民生社區站",
+              "distance": 204,
+              "distanceTxt": "距房屋約204公尺"
+            }
+          ]
+        },
+        {
+          "name": "生活",
+          "key": "live",
+          "children": [
+            {
+              "type": "restaurant",
+              "name": "青梧拉麵",
+              "distance": 69,
+              "distanceTxt": "距房屋約69公尺"
+            },
+            {
+              "type": "shop",
+              "name": "大全聯 青埔店",
+              "distance": 342,
+              "distanceTxt": "距房屋約342公尺"
+            }
+          ]
+        },
+        {
+          "name": "教育",
+          "key": "education",
+          "children": [
+            {
+              "type": "primary",
+              "name": "青埔國小",
+              "distance": 1003,
+              "distanceTxt": "距房屋約1003公尺"
+            },
+            {
+              "type": "secondary",
+              "name": "桃園市立青埔國民中學",
+              "distance": 1443,
+              "distanceTxt": "距房屋約1443公尺"
+            }
+          ]
+        }
+      ],
+      "mapData": [
+        {
+          "name": "交通",
+          "key": "traffic",
+          "children": [
+            {
+              "name": "捷運",
+              "key": "subway",
+              "children": [
+                {
+                  "name": "桃園機場捷運 A18高鐵桃園站",
+                  "type": "subway_station",
+                  "lat": 25.01374,
+                  "lng": 121.21406359999999,
+                  "distance": 589,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                }
+              ]
+            },
+            {
+              "name": "公車",
+              "key": "bus",
+              "children": [
+                {
+                  "name": "青昇一街口站",
+                  "type": "bus_station",
+                  "lat": 25.015490999999997,
+                  "lng": 121.220428,
+                  "distance": 128,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "民生社區站",
+                  "type": "bus_station",
+                  "lat": 25.017362499999997,
+                  "lng": 121.217914,
+                  "distance": 204,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "青園國小站",
+                  "type": "bus_station",
+                  "lat": 25.0173,
+                  "lng": 121.21773999999999,
+                  "distance": 212,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "青昇二街口站",
+                  "type": "bus_station",
+                  "lat": 25.017937999999997,
+                  "lng": 121.22030600000001,
+                  "distance": 233,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "青昇宮(青埔王公廟)站",
+                  "type": "bus_station",
+                  "lat": 25.0145222,
+                  "lng": 121.22223960000001,
+                  "distance": 340,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "青昇宮站",
+                  "type": "bus_station",
+                  "lat": 25.014265,
+                  "lng": 121.222198,
+                  "distance": 352,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "創價學會站",
+                  "type": "bus_station",
+                  "lat": 25.01898,
+                  "lng": 121.22242999999999,
+                  "distance": 453,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "福德宮站",
+                  "type": "bus_station",
+                  "lat": 25.019029999999997,
+                  "lng": 121.21569,
+                  "distance": 494,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "高鐵北路大成路口站",
+                  "type": "bus_station",
+                  "lat": 25.02008,
+                  "lng": 121.22246,
+                  "distance": 549,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "大園國際高中站",
+                  "type": "bus_station",
+                  "lat": 25.021131000000004,
+                  "lng": 121.21986299999999,
+                  "distance": 568,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "皇家社區站",
+                  "type": "bus_station",
+                  "lat": 25.0187426,
+                  "lng": 121.2143905,
+                  "distance": 580,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "桃園機場捷運 A18高鐵桃園站",
+                  "type": "bus_station",
+                  "lat": 25.01374,
+                  "lng": 121.21406359999999,
+                  "distance": 589,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "高鐵桃園站(3號出口)",
+                  "type": "bus_station",
+                  "lat": 25.012224,
+                  "lng": 121.21512600000001,
+                  "distance": 600,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "高鐵桃園站",
+                  "type": "bus_station",
+                  "lat": 25.01371,
+                  "lng": 121.2139,
+                  "distance": 605,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "高鐵站前公園",
+                  "type": "bus_station",
+                  "lat": 25.008793999999998,
+                  "lng": 121.21870399999999,
+                  "distance": 810,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "生活",
+          "key": "live",
+          "children": [
+            {
+              "name": "購物",
+              "key": "shop",
+              "children": [
+                {
+                  "name": "大全聯 青埔店",
+                  "type": "shopping_mall",
+                  "lat": 25.0135796,
+                  "lng": 121.21729970000001,
+                  "distance": 342,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "宜家家居股份有限公司ＩＫＥＡ桃園店",
+                  "type": "shopping_mall",
+                  "lat": 25.0129844,
+                  "lng": 121.2177141,
+                  "distance": 378,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "大全聯青埔店 MEGA PXMart",
+                  "type": "shopping_mall",
+                  "lat": 25.0129593,
+                  "lng": 121.21756579999999,
+                  "distance": 387,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "3M淨水器授權經銷商-IKEA桃園店廚房區櫃位",
+                  "type": "shopping_mall",
+                  "lat": 25.0129593,
+                  "lng": 121.21756579999999,
+                  "distance": 387,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "大全聯青埔店",
+                  "type": "shopping_mall",
+                  "lat": 25.0128268,
+                  "lng": 121.21738019999998,
+                  "distance": 409,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "華泰名品城第二停車場",
+                  "type": "shopping_mall",
+                  "lat": 25.0161201,
+                  "lng": 121.2144761,
+                  "distance": 488,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "華泰名品城(國際日立)",
+                  "type": "shopping_mall",
+                  "lat": 25.0156111,
+                  "lng": 121.214342,
+                  "distance": 504,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "NIKE 華泰名品城店",
+                  "type": "shopping_mall",
+                  "lat": 25.0156111,
+                  "lng": 121.214342,
+                  "distance": 504,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "美華泰",
+                  "type": "shopping_mall",
+                  "lat": 25.013513,
+                  "lng": 121.21378299999999,
+                  "distance": 625,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "ibaby愛貝比-桃園華泰名品城暢貨中心(麗嬰房/嬰兒用品店/outlet)",
+                  "type": "shopping_mall",
+                  "lat": 25.0162857,
+                  "lng": 121.2128264,
+                  "distance": 655,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "PARK",
+                  "type": "shopping_mall",
+                  "lat": 25.0139379,
+                  "lng": 121.21181,
+                  "distance": 793,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "廣源光電",
+                  "type": "shopping_mall",
+                  "lat": 25.0250325,
+                  "lng": 121.2254432,
+                  "distance": 1175,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "Metro walk shopping Taoyuan",
+                  "type": "shopping_mall",
+                  "lat": 25.019571900000003,
+                  "lng": 121.2306675,
+                  "distance": 1209,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "華泰茗品城",
+                  "type": "shopping_mall",
+                  "lat": 25.00556,
+                  "lng": 121.20609999999999,
+                  "distance": 1771,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "內定里活動中心",
+                  "type": "shopping_mall",
+                  "lat": 25.0019673,
+                  "lng": 121.2278847,
+                  "distance": 1789,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "大江Berlyetaga",
+                  "type": "shopping_mall",
+                  "lat": 25.0020326,
+                  "lng": 121.2283453,
+                  "distance": 1805,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "仙Q冰菓室-大江購物中心",
+                  "type": "shopping_mall",
+                  "lat": 25.0015283,
+                  "lng": 121.2284747,
+                  "distance": 1860,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "青原苗莆",
+                  "type": "shopping_mall",
+                  "lat": 25.0103222,
+                  "lng": 121.2366602,
+                  "distance": 1860,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "DIANA 專櫃女鞋",
+                  "type": "shopping_mall",
+                  "lat": 25.0013249,
+                  "lng": 121.2285378,
+                  "distance": 1883,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "DollBao逗寶百貨專櫃－桃園大江購物中心",
+                  "type": "shopping_mall",
+                  "lat": 25.001185,
+                  "lng": 121.228536,
+                  "distance": 1897,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                }
+              ]
+            },
+            {
+              "name": "餐飲",
+              "key": "restaurant",
+              "children": [
+                {
+                  "name": "青梧拉麵",
+                  "type": "restaurant",
+                  "lat": 25.0162779,
+                  "lng": 121.218683,
+                  "distance": 69,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "別館 餐酒館",
+                  "type": "restaurant",
+                  "lat": 25.0160524,
+                  "lng": 121.2185234,
+                  "distance": 81,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "品吉池上便當-青峰店",
+                  "type": "restaurant",
+                  "lat": 25.0166592,
+                  "lng": 121.2204039,
+                  "distance": 129,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "M3 Bistro 餐酒館 | 人氣餐酒館 酒吧 美食餐廳 調酒DJ BAR restaurant",
+                  "type": "restaurant",
+                  "lat": 25.0151048,
+                  "lng": 121.2184376,
+                  "distance": 138,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "源釀YuanVin｜Wine 葡萄酒 Winetails 葡萄酒調酒 輕食",
+                  "type": "restaurant",
+                  "lat": 25.0173438,
+                  "lng": 121.21967620000001,
+                  "distance": 149,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "小紀家 雞蛋燒",
+                  "type": "restaurant",
+                  "lat": 25.0160664,
+                  "lng": 121.2208677,
+                  "distance": 157,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "X Ten喝好湯",
+                  "type": "restaurant",
+                  "lat": 25.018104,
+                  "lng": 121.2204654,
+                  "distance": 257,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "麻凡麻辣火鍋-桃園青埔店",
+                  "type": "restaurant",
+                  "lat": 25.0185829,
+                  "lng": 121.21949020000001,
+                  "distance": 283,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "くら寿司 藏壽司 桃園青埔店",
+                  "type": "restaurant",
+                  "lat": 25.014218099999997,
+                  "lng": 121.2213127,
+                  "distance": 287,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "gonna共樂遊",
+                  "type": "restaurant",
+                  "lat": 25.0163854,
+                  "lng": 121.2163331,
+                  "distance": 304,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "半半熱狗-桃園華泰店",
+                  "type": "restaurant",
+                  "lat": 25.0163019,
+                  "lng": 121.2161177,
+                  "distance": 324,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "愛夾吐司",
+                  "type": "restaurant",
+                  "lat": 25.0163131,
+                  "lng": 121.2160282,
+                  "distance": 333,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "合點壽司 (華泰店)",
+                  "type": "restaurant",
+                  "lat": 25.0177338,
+                  "lng": 121.2164957,
+                  "distance": 341,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "Le Gentil 暖暖胃",
+                  "type": "restaurant",
+                  "lat": 25.0170268,
+                  "lng": 121.2226228,
+                  "distance": 351,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "素是色彩 Ve Color",
+                  "type": "restaurant",
+                  "lat": 25.0170268,
+                  "lng": 121.22262280000001,
+                  "distance": 351,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "韓州豆腐鍋 桃園華泰店",
+                  "type": "restaurant",
+                  "lat": 25.0178351,
+                  "lng": 121.2164075,
+                  "distance": 355,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "Woosa洋食パンケーキ 屋莎洋食鬆餅屋 桃園華泰店",
+                  "type": "restaurant",
+                  "lat": 25.0176824,
+                  "lng": 121.2162226,
+                  "distance": 361,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "西雅圖牛排華泰名品城店",
+                  "type": "restaurant",
+                  "lat": 25.0178015,
+                  "lng": 121.2162083,
+                  "distance": 369,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "橫濱咖哩",
+                  "type": "restaurant",
+                  "lat": 25.0179793,
+                  "lng": 121.2162452,
+                  "distance": 377,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "黑毛屋 華泰名品城店",
+                  "type": "restaurant",
+                  "lat": 25.0173835,
+                  "lng": 121.2158613,
+                  "distance": 379,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "教育",
+          "key": "education",
+          "children": [
+            {
+              "name": "國小",
+              "key": "primary",
+              "children": [
+                {
+                  "name": "青埔國小",
+                  "type": "primary_school",
+                  "lat": 25.0078753,
+                  "lng": 121.2151197,
+                  "distance": 1003,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                },
+                {
+                  "name": "桃園市中壢區青埔國民小學",
+                  "type": "primary_school",
+                  "lat": 25.0071818,
+                  "lng": 121.21408179999997,
+                  "distance": 1119,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                }
+              ]
+            },
+            {
+              "name": "國中",
+              "key": "secondary",
+              "children": [
+                {
+                  "name": "桃園市立青埔國民中學",
+                  "type": "secondary_school",
+                  "lat": 25.0111825,
+                  "lng": 121.20604689999999,
+                  "distance": 1443,
+                  "trading_area_id": 0,
+                  "trading_area_distance": 0
+                }
+              ]
+            },
+            {
+              "name": "大學",
+              "key": "university",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "gtm_detail_data": {
+      "item_id": "R21103645",
+      "item_name": "Lily🧸A18青埔捷運高鐵國家大院3房含車管",
+      "region_name": "桃園市",
+      "section_name": "中壢區",
+      "kind_name": "整層住家",
+      "price_name": 32000,
+      "shape_name": "電梯大樓",
+      "layout_name": 3,
+      "area_name": 19,
+      "floor_name": "14F",
+      "facility_name": "冰箱,洗衣機,冷氣,熱水器,床,衣櫃,沙發,1陽台,電梯,平面車位",
+      "label_name": "近捷運,新上架,拎包入住,有電梯,隨時可遷入,可開伙,可養寵物,有車位,租金補貼,可報稅,可入籍",
+      "notice_name": "",
+      "life_name": "",
+      "fitment_name": "",
+      "house_age_name": "",
+      "direction_name": ""
+    }
+  }
+}

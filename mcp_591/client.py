@@ -15,6 +15,8 @@ _MOBILE_UA = (
 class Client591:
     _SALE_URL = "https://bff-house.591.com.tw/v1/touch/sale/list"
     _DETAIL_URL = "https://bff-house.591.com.tw/v1/touch/sale/detail"
+    _RENT_URL = "https://bff-house.591.com.tw/v3/web/rent/list"
+    _RENT_DETAIL_URL = "https://bff-house.591.com.tw/v2/web/rent/detail"
 
     def __init__(self, device_id: str | None = None) -> None:
         self._device_id = device_id or uuid.uuid4().hex
@@ -94,6 +96,61 @@ class Client591:
             params["keywords"] = keywords
 
         resp = self._session.get(self._SALE_URL, params=params)
+        resp.raise_for_status()
+        return resp.json()
+
+    def search_rent(
+        self,
+        region_id: int,
+        section_ids: list[int],
+        *,
+        first_row: int = 0,
+        kind: int | None = None,
+        shape_ids: list[int] | None = None,
+        pattern_ids: list[int] | None = None,
+        price_str: str | None = None,
+        keywords: str | None = None,
+    ) -> dict:
+        """Search for rental listings.
+
+        Args:
+            region_id: County ID. e.g. 6 = 桃園市
+            section_ids: District IDs. e.g. [67] = 中壢區
+            first_row: Pagination offset.
+            kind: Room type. e.g. 1=整層住家, 2=獨立套房, 3=分租套房, 4=雅房 (see RENT_KINDS)
+            shape_ids: Building shape. e.g. [2] = 電梯大樓 (see SHAPES in constants)
+            pattern_ids: Room count. e.g. [3] = 3房 (see PATTERNS in constants)
+            price_str: Monthly rent range in TWD. e.g. "10000_20000"
+            keywords: Free-text search within listing titles/descriptions.
+        """
+        params: dict = {
+            "regionid": region_id,
+            "sectionid": ",".join(str(i) for i in section_ids),
+            "firstRow": first_row,
+            "timestamp": int(time.time() * 1000),
+        }
+        if kind is not None:
+            params["kind"] = kind
+        if shape_ids is not None:
+            params["shape"] = ",".join(str(i) for i in shape_ids)
+        if pattern_ids is not None:
+            params["pattern"] = ",".join(str(i) for i in pattern_ids)
+        if price_str is not None:
+            params["rentprice"] = price_str
+        if keywords is not None:
+            params["keywords"] = keywords
+
+        resp = self._session.get(self._RENT_URL, params=params)
+        resp.raise_for_status()
+        return resp.json()
+
+    def get_rent_detail(self, post_id: str | int) -> dict:
+        """Fetch full detail for a rental listing.
+
+        Args:
+            post_id: Listing ID from search_rent results. e.g. 21044696
+        """
+        resp = self._session.get(self._RENT_DETAIL_URL, params={"id": str(post_id)})
         resp.raise_for_status()
         return resp.json()
 

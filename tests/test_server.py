@@ -5,9 +5,13 @@ from unittest.mock import MagicMock, patch
 from mcp_591.client import Client591
 from mcp_591.server import (
     _LISTING_KEYS,
+    _RENT_LISTING_KEYS,
     _filter_listing,
+    _filter_rent_listing,
     _strip_html,
+    get_rent_detail,
     get_sale_detail,
+    search_rent,
     search_sale,
 )
 
@@ -124,3 +128,81 @@ class TestGetSaleDetailTool:
         assert result["layout"] == "3房2廳2衛"
         assert result["community"] == "麗江星漾"
         assert result["agent_type"] == "仲介"
+
+
+class TestFilterRentListing:
+    def test_injects_post_id_from_id(self):
+        raw = _load("search_rent.json")
+        item = raw["data"]["items"][0]
+        filtered = _filter_rent_listing(item)
+        assert filtered["post_id"] == item["id"]
+
+    def test_only_keeps_allowed_keys(self):
+        raw = _load("search_rent.json")
+        for item in raw["data"]["items"]:
+            filtered = _filter_rent_listing(item)
+            allowed = _RENT_LISTING_KEYS | {"post_id"}
+            assert set(filtered.keys()) <= allowed
+
+    def test_preserves_useful_fields(self):
+        raw = _load("search_rent.json")
+        item = raw["data"]["items"][0]
+        filtered = _filter_rent_listing(item)
+        for key in ("post_id", "title", "price", "price_unit", "area_name", "kind_name", "address"):
+            assert key in filtered
+
+
+class TestSearchRentTool:
+    def test_returns_total_rows_and_next_offset(self):
+        raw = _load("search_rent.json")
+        client = Client591(device_id="test")
+        with patch.object(client._session, "get", return_value=_mock_resp(raw)):
+            with patch("mcp_591.server._client", client):
+                result = search_rent("桃園市", section="中壢區")
+        assert result["total_rows"] == raw["data"]["total"]
+        assert "next_first_row" in result
+
+    def test_each_listing_has_post_id(self):
+        raw = _load("search_rent.json")
+        client = Client591(device_id="test")
+        with patch.object(client._session, "get", return_value=_mock_resp(raw)):
+            with patch("mcp_591.server._client", client):
+                result = search_rent("桃園市", section="中壢區")
+        for item in result["listings"]:
+            assert "post_id" in item
+            assert item["post_id"] is not None
+
+    def test_each_listing_only_has_allowed_keys(self):
+        raw = _load("search_rent.json")
+        client = Client591(device_id="test")
+        with patch.object(client._session, "get", return_value=_mock_resp(raw)):
+            with patch("mcp_591.server._client", client):
+                result = search_rent("桃園市", section="中壢區")
+        allowed = _RENT_LISTING_KEYS | {"post_id"}
+        for item in result["listings"]:
+            assert set(item.keys()) <= allowed
+
+
+class TestGetRentDetailTool:
+    def test_returns_expected_fields(self):
+        raw = _load("rent_detail.json")
+        client = Client591(device_id="test")
+        with patch.object(client._session, "get", return_value=_mock_resp(raw)):
+            with patch("mcp_591.server._client", client):
+                result = get_rent_detail("21103645")
+        for key in ("title", "price", "price_unit", "kind", "area", "floor",
+                    "region", "section", "address", "lat", "lng", "lease", "facilities"):
+            assert key in result
+
+    def test_maps_fixture_values(self):
+        raw = _load("rent_detail.json")
+        client = Client591(device_id="test")
+        with patch.object(client._session, "get", return_value=_mock_resp(raw)):
+            with patch("mcp_591.server._client", client):
+                result = get_rent_detail("21103645")
+        assert result["price"] == "32,000"
+        assert result["price_unit"] == "元/月"
+        assert result["kind"] == "整層住家"
+        assert result["region"] == "桃園市"
+        assert result["section"] == "中壢區"
+        assert result["lat"] == "25.0160495"
