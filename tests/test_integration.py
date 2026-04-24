@@ -31,7 +31,14 @@ def live_post_id(client):
 
 @pytest.fixture(scope="module")
 def live_rent_post_id(client):
-    result = client.search_rent(region_id=6, section_ids=[67])
+    # 591 rent API occasionally returns 0 items for narrow section filters;
+    # retry a couple of times, then fall back to region-wide before failing.
+    for _ in range(3):
+        result = client.search_rent(region_id=6, section_ids=[67])
+        items = result.get("data", {}).get("items", [])
+        if items:
+            return str(items[0]["id"])
+    result = client.search_rent(region_id=6, section_ids=[])
     items = result.get("data", {}).get("items", [])
     assert items, "no live rent listings found for fixture"
     return str(items[0]["id"])
