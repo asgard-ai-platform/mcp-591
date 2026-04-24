@@ -11,12 +11,22 @@ from mcp_591.server import get_sale_detail, search_sale
 # 桃園市中壢區, 3房, 電梯大樓
 _REGION = "桃園市"
 _SECTION = "中壢區"
-_POST_ID = "19708683"
 
 
 @pytest.fixture(scope="module")
 def client():
     return Client591()
+
+
+@pytest.fixture(scope="module")
+def live_post_id(client):
+    """Fetch a currently-live sale post_id. Hardcoding IDs is fragile — 591
+    listings get delisted and the detail API returns {status: 1, data: ""} for
+    stale IDs, which looks like success but crashes downstream parsing."""
+    result = client.search_sale(region_id=6, section_ids=[67], kind=9, page_size=5)
+    listings = [x for x in result["data"] if "post_id" in x]
+    assert listings, "no live listings found for fixture"
+    return str(listings[0]["post_id"])
 
 
 # ── Client ────────────────────────────────────────────────────────────────────
@@ -49,8 +59,8 @@ class TestClientSearchSale:
 
 @pytest.mark.integration
 class TestClientGetSaleDetail:
-    def test_schema(self, client):
-        result = client.get_sale_detail(_POST_ID)
+    def test_schema(self, client, live_post_id):
+        result = client.get_sale_detail(live_post_id)
         assert result["status"] == 1
         d = result["data"]
         assert isinstance(d["title"], str)
@@ -90,14 +100,14 @@ class TestToolSearchSale:
 
 @pytest.mark.integration
 class TestToolGetSaleDetail:
-    def test_schema(self):
-        result = get_sale_detail(_POST_ID)
+    def test_schema(self, live_post_id):
+        result = get_sale_detail(live_post_id)
         for key in ("title", "price", "area", "layout", "floor",
                     "region", "section", "lat", "lng"):
             assert key in result, f"missing key: {key}"
 
-    def test_remark_is_plain_text(self):
-        result = get_sale_detail(_POST_ID)
+    def test_remark_is_plain_text(self, live_post_id):
+        result = get_sale_detail(live_post_id)
         remark = result.get("remark", "")
         assert "<" not in remark
         assert "&nbsp;" not in remark
