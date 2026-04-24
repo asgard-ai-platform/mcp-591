@@ -170,7 +170,8 @@ class TestSearchRentTool:
         with patch.object(client._session, "get", return_value=_mock_resp(raw)):
             with patch("mcp_591.server._client", client):
                 result = search_rent("桃園市", section="中壢區")
-        assert result["total_rows"] == raw["data"]["total"]
+        assert result["total_rows"] == int(raw["data"]["total"])
+        assert isinstance(result["total_rows"], int)
         assert "next_first_row" in result
 
     def test_each_listing_has_post_id(self):

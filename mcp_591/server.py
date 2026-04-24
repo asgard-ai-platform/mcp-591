@@ -234,8 +234,11 @@ def search_rent(
 
     data = result.get("data", {})
     listings = [_filter_rent_listing(item) for item in data.get("items", [])]
+    # 591 rent API returns `total` as a string; coerce to int so callers get the
+    # same type as search_sale.
+    total = data.get("total")
     return {
-        "total_rows": data.get("total"),
+        "total_rows": int(total) if total is not None else None,
         "next_first_row": data.get("firstRow"),
         "listings": listings,
     }

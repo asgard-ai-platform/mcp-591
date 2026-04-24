@@ -161,8 +161,8 @@ class TestClientGetRentDetail:
 class TestToolSearchRent:
     def test_schema(self):
         result = search_rent(_REGION, section=_SECTION)
-        # rent tool passes through 591's string total verbatim
-        assert int(result["total_rows"]) > 0
+        assert isinstance(result["total_rows"], int)
+        assert result["total_rows"] > 0
         assert len(result["listings"]) > 0
 
     def test_listing_fields(self):
