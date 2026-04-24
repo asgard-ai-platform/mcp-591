@@ -131,7 +131,9 @@ def get_sale_detail(post_id: str) -> dict:
         post_id: 物件 ID，來自 search_sale 結果的 post_id 欄位。
     """
     resp = _client.get_sale_detail(post_id)
-    d = resp.get("data", {})
+    d = resp.get("data")
+    if not isinstance(d, dict) or not d:
+        raise ValueError(f"Listing {post_id} not found (may be delisted)")
     return {
         "title": d.get("title"),
         "price": d.get("price"),
@@ -247,7 +249,9 @@ def get_rent_detail(post_id: str) -> dict:
         post_id: 物件 ID，來自 search_rent 結果的 post_id 欄位。
     """
     resp = _client.get_rent_detail(post_id)
-    d = resp.get("data", {})
+    d = resp.get("data")
+    if not isinstance(d, dict) or not d:
+        raise ValueError(f"Listing {post_id} not found (may be delisted)")
 
     info = {item["key"]: item["value"] for item in d.get("info", [])}
     house_info = {item["key"]: item["value"] for item in d.get("houseInfo", {}).get("data", [])}

@@ -2,6 +2,8 @@ import json
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
+import pytest
+
 from mcp_591.client import Client591
 from mcp_591.server import (
     _LISTING_KEYS,
@@ -129,6 +131,15 @@ class TestGetSaleDetailTool:
         assert result["community"] == "麗江星漾"
         assert result["agent_type"] == "仲介"
 
+    def test_raises_when_listing_delisted(self):
+        # 591 returns status=1 with empty data string for delisted sale listings
+        client = Client591(device_id="test")
+        delisted = {"status": 1, "flag": "0", "data": "", "line": "2710"}
+        with patch.object(client._session, "get", return_value=_mock_resp(delisted)):
+            with patch("mcp_591.server._client", client):
+                with pytest.raises(ValueError, match="19708683"):
+                    get_sale_detail("19708683")
+
 
 class TestFilterRentListing:
     def test_injects_post_id_from_id(self):
@@ -206,3 +217,12 @@ class TestGetRentDetailTool:
         assert result["region"] == "桃園市"
         assert result["section"] == "中壢區"
         assert result["lat"] == "25.0160495"
+
+    def test_raises_when_listing_not_found(self):
+        # 591 returns status=0 with empty data string for non-existent rent listings
+        client = Client591(device_id="test")
+        missing = {"status": 0, "data": ""}
+        with patch.object(client._session, "get", return_value=_mock_resp(missing)):
+            with patch("mcp_591.server._client", client):
+                with pytest.raises(ValueError, match="99999999"):
+                    get_rent_detail("99999999")
