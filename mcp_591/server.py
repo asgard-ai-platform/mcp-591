@@ -9,6 +9,7 @@ from mcp_591.constants import (
     KINDS,
     PATTERNS,
     REGIONS,
+    RENT_KINDS,
     SECTIONS,
     SECTIONS_BY_REGION,
     SHAPES,
@@ -161,6 +162,127 @@ def get_sale_detail(post_id: str) -> dict:
         "phone": d.get("mobile"),
         "company": d.get("company_name"),
         "remark": _strip_html(d.get("remark", "")),
+    }
+
+
+_RENT_LISTING_KEYS = {
+    "post_id", "title", "price", "price_unit", "area_name",
+    "layoutStr", "kind_name", "address", "tags", "refresh_time",
+}
+
+
+def _filter_rent_listing(item: dict) -> dict:
+    result = {k: v for k, v in item.items() if k in _RENT_LISTING_KEYS}
+    result["post_id"] = item.get("id")
+    return result
+
+
+@mcp.tool()
+def search_rent(
+    region: str,
+    section: str | None = None,
+    kind: str | None = None,
+    shape: str | None = None,
+    pattern: str | None = None,
+    price_str: str | None = None,
+    keywords: str | None = None,
+    first_row: int = 0,
+) -> dict:
+    """搜尋 591 租屋列表。
+
+    Args:
+        region: 縣市名稱，例如「桃園市」
+        section: 區域名稱，例如「中壢區」，不填則搜尋整個縣市
+        kind: 物件類型，可選：整層住家/獨立套房/分租套房/雅房/車位
+        shape: 建物型態，例如「電梯大樓」，可選：公寓/電梯大樓/透天厝/別墅
+        pattern: 格局，例如「3房」，可選：1房/2房/3房/4房/5房以上
+        price_str: 月租金區間（元），例如「10000_20000」
+        keywords: 關鍵字搜尋，例如「捷運」「學區」
+        first_row: 分頁 offset
+    """
+    region_id = _resolve(REGIONS, region, "縣市")
+    if region_id is None:
+        raise ValueError("縣市不可為空")
+
+    if section:
+        section_ids = [
+            sid for sid, (sname, rid) in SECTIONS.items()
+            if sname == section and rid == region_id
+        ]
+        if not section_ids:
+            available = list(SECTIONS_BY_REGION[region_id].values())
+            raise ValueError(f"找不到區域 {section!r}，可用：{available}")
+    else:
+        section_ids = list(SECTIONS_BY_REGION[region_id].keys())
+
+    kind_id = _resolve(RENT_KINDS, kind, "物件類型") if kind else None
+    shape_ids = [_resolve(SHAPES, shape, "建物型態")] if shape else None
+    pattern_ids = [_resolve(PATTERNS, pattern, "格局")] if pattern else None
+
+    result = _client.search_rent(
+        region_id=region_id,
+        section_ids=section_ids,
+        kind=kind_id,
+        shape_ids=shape_ids,
+        pattern_ids=pattern_ids,
+        price_str=price_str,
+        keywords=keywords,
+        first_row=first_row,
+    )
+
+    data = result.get("data", {})
+    listings = [_filter_rent_listing(item) for item in data.get("items", [])]
+    return {
+        "total_rows": data.get("total"),
+        "next_first_row": data.get("firstRow"),
+        "listings": listings,
+    }
+
+
+@mcp.tool()
+def get_rent_detail(post_id: str) -> dict:
+    """取得 591 租屋物件的完整詳細資訊。
+
+    Args:
+        post_id: 物件 ID，來自 search_rent 結果的 post_id 欄位。
+    """
+    resp = _client.get_rent_detail(post_id)
+    d = resp.get("data", {})
+
+    info = {item["key"]: item["value"] for item in d.get("info", [])}
+    house_info = {item["key"]: item["value"] for item in d.get("houseInfo", {}).get("data", [])}
+    addr = d.get("address", {})
+    link = d.get("linkInfo", {})
+    gtm = d.get("gtm_detail_data", {})
+    remark_block = d.get("remark", {})
+
+    return {
+        "title": d.get("title"),
+        "price": d.get("price"),
+        "price_unit": d.get("priceUnit"),
+        "deposit": d.get("deposit"),
+        "kind": gtm.get("kind_name"),
+        "area": info.get("area"),
+        "floor": info.get("floor"),
+        "shape": info.get("shape"),
+        "layout": info.get("layout"),
+        "region": gtm.get("region_name"),
+        "section": gtm.get("section_name"),
+        "address": addr.get("data"),
+        "lat": addr.get("lat"),
+        "lng": addr.get("lng"),
+        "traffic": addr.get("traffic"),
+        "lease": house_info.get("leaseTime"),
+        "move_in": house_info.get("comeDate"),
+        "pet": house_info.get("pet"),
+        "cook": house_info.get("cook"),
+        "sex": house_info.get("sex"),
+        "facilities": gtm.get("facility_name"),
+        "tags": d.get("tags"),
+        "agent": link.get("name"),
+        "agent_role": link.get("roleName"),
+        "phone": link.get("mobile"),
+        "remark": remark_block.get("content", ""),
     }
 
 

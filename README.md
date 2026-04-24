@@ -56,7 +56,7 @@ The repo ships a `.mcp.json` that Claude Code picks up automatically:
 }
 ```
 
-Two tools are exposed:
+Four tools are exposed:
 
 #### `search_sale` — Search for sale listings
 
@@ -82,6 +82,27 @@ Two tools are exposed:
 | `post_id` | str | Listing ID from a `search_sale` result |
 
 Returns: floor area breakdown (main area / common-area ratio), floor, building age, nearby transit, parking, fitment, mortgage estimate, contact info, and description.
+
+#### `search_rent` — Search for rental listings
+
+| Parameter | Type | Description |
+|---|---|---|
+| `region` | str (required) | County/city name, e.g. `桃園市` |
+| `section` | str | District, e.g. `中壢區`. Omit to search the whole county. |
+| `kind` | str | Room type: `整層住家` / `獨立套房` / `分租套房` / `雅房` / `車位` |
+| `shape` | str | Building type: `公寓` / `電梯大樓` / `透天厝` / `別墅` |
+| `pattern` | str | Room count: `1房` / `2房` / `3房` / `4房` / `5房以上` |
+| `price_str` | str | Monthly rent range in NTD, e.g. `10000_20000` |
+| `keywords` | str | Free-text search, e.g. `捷運` (MRT) |
+| `first_row` | int | Pagination offset (default 0). Use `next_first_row` from the previous response. |
+
+#### `get_rent_detail` — Fetch full rental listing details
+
+| Parameter | Type | Description |
+|---|---|---|
+| `post_id` | str | Listing ID from a `search_rent` result |
+
+Returns: price, deposit, floor area, floor, building type, layout, address with lat/lng, lease period, move-in date, pet/cooking/gender policies, facilities, contact info, and description.
 
 ### Running the client directly (debugging)
 
@@ -113,8 +134,10 @@ uv run pytest -m integration
 ```
 tests/
 ├── fixtures/
-│   ├── search_sale.json   # Captured search response
-│   └── sale_detail.json   # Captured detail response
+│   ├── search_sale.json   # Captured sale search response
+│   ├── sale_detail.json   # Captured sale detail response
+│   ├── search_rent.json   # Captured rent search response
+│   └── rent_detail.json   # Captured rent detail response
 ├── test_server.py         # Unit tests: filtering and tool logic
 └── test_integration.py    # Integration tests (skipped by default)
 ```
@@ -130,5 +153,9 @@ json.dump(c.search_sale(region_id=6, section_ids=[67], kind=9, page_size=5),
           open('tests/fixtures/search_sale.json', 'w'), ensure_ascii=False, indent=2)
 json.dump(c.get_sale_detail(19708683),
           open('tests/fixtures/sale_detail.json', 'w'), ensure_ascii=False, indent=2)
+json.dump(c.search_rent(region_id=6, section_ids=[67], kind=1),
+          open('tests/fixtures/search_rent.json', 'w'), ensure_ascii=False, indent=2)
+json.dump(c.get_rent_detail(21103645),
+          open('tests/fixtures/rent_detail.json', 'w'), ensure_ascii=False, indent=2)
 "
 ```

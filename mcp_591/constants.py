@@ -57,6 +57,14 @@ KINDS: dict[int, str] = {
     12: "住辦",
 }
 
+RENT_KINDS: dict[int, str] = {
+    1: "整層住家",
+    2: "獨立套房",
+    3: "分租套房",
+    4: "雅房",
+    8: "車位",
+}
+
 REGIONS: dict[int, str] = {
     1: "台北市",
     2: "基隆市",

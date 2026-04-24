@@ -54,7 +54,7 @@ uv sync
 }
 ```
 
-啟動後可使用兩個 tool：
+啟動後可使用四個 tool：
 
 #### `search_sale` — 搜尋售屋列表
 
@@ -80,6 +80,27 @@ uv sync
 | `post_id` | str | 物件 ID，來自 `search_sale` 結果的 `post_id` 欄位 |
 
 回傳包含：坪數細項（主建物 / 公設比）、樓層、屋齡、交通、停車、裝潢、貸款試算、聯絡資訊、備註等。
+
+#### `search_rent` — 搜尋租屋列表
+
+| 參數 | 型別 | 說明 |
+|---|---|---|
+| `region` | str（必填） | 縣市，例如 `桃園市` |
+| `section` | str | 區域，例如 `中壢區`，省略則搜尋整個縣市 |
+| `kind` | str | 物件類型：`整層住家` / `獨立套房` / `分租套房` / `雅房` / `車位` |
+| `shape` | str | 建物型態：`公寓` / `電梯大樓` / `透天厝` / `別墅` |
+| `pattern` | str | 格局：`1房` / `2房` / `3房` / `4房` / `5房以上` |
+| `price_str` | str | 月租金區間（元），例如 `10000_20000` |
+| `keywords` | str | 關鍵字，例如 `捷運` |
+| `first_row` | int | 分頁 offset（預設 0），使用上一頁回傳的 `next_first_row` |
+
+#### `get_rent_detail` — 取得租屋物件詳情
+
+| 參數 | 型別 | 說明 |
+|---|---|---|
+| `post_id` | str | 物件 ID，來自 `search_rent` 結果的 `post_id` 欄位 |
+
+回傳包含：租金、押金、坪數、樓層、建物型態、格局、地址與座標、租期、入住時間、寵物 / 開伙 / 性別限制、提供設備、聯絡資訊、備註等。
 
 ### 直接執行 client（除錯用）
 
@@ -111,8 +132,10 @@ uv run pytest -m integration
 ```
 tests/
 ├── fixtures/
-│   ├── search_sale.json   # 搜尋結果 fixture
-│   └── sale_detail.json   # 物件詳情 fixture
+│   ├── search_sale.json   # 售屋搜尋結果 fixture
+│   ├── sale_detail.json   # 售屋詳情 fixture
+│   ├── search_rent.json   # 租屋搜尋結果 fixture
+│   └── rent_detail.json   # 租屋詳情 fixture
 ├── test_server.py         # 單元測試：filter / tool 邏輯
 └── test_integration.py    # 整合測試（default 跳過）
 ```
@@ -128,5 +151,9 @@ json.dump(c.search_sale(region_id=6, section_ids=[67], kind=9, page_size=5),
           open('tests/fixtures/search_sale.json', 'w'), ensure_ascii=False, indent=2)
 json.dump(c.get_sale_detail(19708683),
           open('tests/fixtures/sale_detail.json', 'w'), ensure_ascii=False, indent=2)
+json.dump(c.search_rent(region_id=6, section_ids=[67], kind=1),
+          open('tests/fixtures/search_rent.json', 'w'), ensure_ascii=False, indent=2)
+json.dump(c.get_rent_detail(21103645),
+          open('tests/fixtures/rent_detail.json', 'w'), ensure_ascii=False, indent=2)
 "
 ```
