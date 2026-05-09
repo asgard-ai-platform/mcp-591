@@ -1,14 +1,30 @@
-# mcp-591
+# MCP 591
 
-An MCP server that lets AI assistants search property listings on [591.com.tw](https://house.591.com.tw), Taiwan's largest real estate platform.
+[![PyPI version](https://img.shields.io/pypi/v/mcp-591)](https://pypi.org/project/mcp-591/)
+[![Python versions](https://img.shields.io/pypi/pyversions/mcp-591)](https://pypi.org/project/mcp-591/)
+[![GitHub stars](https://img.shields.io/github/stars/asgard-ai-platform/mcp-591)](https://github.com/asgard-ai-platform/mcp-591/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/asgard-ai-platform/mcp-591)](https://github.com/asgard-ai-platform/mcp-591/issues)
+[![GitHub last commit](https://img.shields.io/github/last-commit/asgard-ai-platform/mcp-591)](https://github.com/asgard-ai-platform/mcp-591/commits/main)
+[![MCP](https://img.shields.io/badge/MCP-compatible-blue)](https://modelcontextprotocol.io/)
 
-> **Disclaimer**: This project scrapes data from an undocumented API. It is intended for personal research only. Do not use it for bulk or high-frequency requests.
+[繁體中文](README.zh-tw.md)
 
-Also available in: [繁體中文](README.zh-tw.md)
+An open-source [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) server that exposes [591.com.tw](https://house.591.com.tw) — Taiwan's largest real estate platform — as 4 AI-callable tools for searching sale and rental listings.
+
+Built for [Claude Code](https://claude.ai/code), Claude Desktop, and any MCP-compatible AI client. Lets AI agents search property listings and fetch full details through natural language.
+
+> **Disclaimer:** This project scrapes data from an undocumented API. It is intended for personal research only. Do not use it for bulk or high-frequency requests.
+
+## What This Does
+
+- **4 ready-to-use tools** for sale search, sale detail, rent search, rent detail
+- **MCP server** (stdio) — plug into Claude Code and start asking questions immediately
+- **Natural-language parameter mapping** — Chinese region/section names, human-readable filters (e.g. `電梯大樓`, `3房`, `5_10`)
+- **Minimal dependencies** — `fastmcp` + `requests`
 
 ## Example
 
-> **User:** 幫我搜尋青埔周邊 10 年內的大樓，總價控制在 1200 萬左右
+> **You:** 幫我搜尋青埔周邊 10 年內的大樓，總價控制在 1200 萬左右
 
 Claude calls `search_sale` with the inferred parameters:
 
@@ -25,24 +41,31 @@ Claude calls `search_sale` with the inferred parameters:
 
 > **Claude:** 青埔周邊 1,000~1,400 萬、10 年內電梯大樓，共找到 5年內 135 筆、5~10年 146 筆，以下整理 CP 值較高的物件：...
 
-## Requirements
+---
 
-- Python 3.14+
-- [uv](https://github.com/astral-sh/uv)
+## Quick Start
 
-## Installation
+### Install
 
 ```bash
-git clone <repo>
-cd mcp-591
-uv sync
+pip install mcp-591
 ```
 
-## Usage
+Or use uvx (no install needed):
 
-### As an MCP Server (Claude Desktop / Claude Code)
+```bash
+uvx mcp-591
+```
 
-The repo ships a `.mcp.json` that Claude Code picks up automatically:
+### Use with Claude Code
+
+Add the server via the Claude CLI:
+
+```bash
+claude mcp add --transport stdio 591 -- uvx mcp-591
+```
+
+If you clone the repo locally, the included `.mcp.json` is auto-detected by Claude Code:
 
 ```json
 {
@@ -56,9 +79,26 @@ The repo ships a `.mcp.json` that Claude Code picks up automatically:
 }
 ```
 
-Four tools are exposed:
+### Use with Claude Desktop
 
-#### `search_sale` — Search for sale listings
+Add to your `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "591": {
+      "command": "uvx",
+      "args": ["mcp-591"]
+    }
+  }
+}
+```
+
+---
+
+## Tools (4)
+
+### `search_sale` — Search for sale listings
 
 | Parameter | Type | Description |
 |---|---|---|
@@ -75,7 +115,7 @@ Four tools are exposed:
 | `page_size` | int | Results per page, max 30 (default 30) |
 | `first_row` | int | Pagination offset (default 0) |
 
-#### `get_sale_detail` — Fetch full listing details
+### `get_sale_detail` — Fetch full sale listing details
 
 | Parameter | Type | Description |
 |---|---|---|
@@ -83,7 +123,7 @@ Four tools are exposed:
 
 Returns: floor area breakdown (main area / common-area ratio), floor, building age, nearby transit, parking, fitment, mortgage estimate, contact info, and description.
 
-#### `search_rent` — Search for rental listings
+### `search_rent` — Search for rental listings
 
 | Parameter | Type | Description |
 |---|---|---|
@@ -96,7 +136,7 @@ Returns: floor area breakdown (main area / common-area ratio), floor, building a
 | `keywords` | str | Free-text search, e.g. `捷運` (MRT) |
 | `first_row` | int | Pagination offset (default 0). Use `next_first_row` from the previous response. |
 
-#### `get_rent_detail` — Fetch full rental listing details
+### `get_rent_detail` — Fetch full rental listing details
 
 | Parameter | Type | Description |
 |---|---|---|
@@ -104,7 +144,21 @@ Returns: floor area breakdown (main area / common-area ratio), floor, building a
 
 Returns: price, deposit, floor area, floor, building type, layout, address with lat/lng, lease period, move-in date, pet/cooking/gender policies, facilities, contact info, and description.
 
-### Running the client directly (debugging)
+---
+
+## Development
+
+### Setup from Source
+
+Requires Python 3.14+ and [uv](https://github.com/astral-sh/uv).
+
+```bash
+git clone https://github.com/asgard-ai-platform/mcp-591.git
+cd mcp-591
+uv sync --dev
+```
+
+### Run the client directly (debugging)
 
 ```bash
 # Search 桃園市中壢區
@@ -116,12 +170,9 @@ uv run python -m mcp_591.client 桃園市 中壢區 電梯大樓 3房 2衛 30_40
 
 Argument order: `<county> [district] [shape,...] [pattern,...] [toilet,...] [area] [age]`. Pass an empty string `""` to skip an intermediate argument.
 
-## Development & Testing
+### Run Tests
 
 ```bash
-# Install with dev dependencies
-uv sync --dev
-
 # Unit tests (no network, uses fixtures)
 uv run pytest
 
@@ -159,3 +210,7 @@ json.dump(c.get_rent_detail(21103645),
           open('tests/fixtures/rent_detail.json', 'w'), ensure_ascii=False, indent=2)
 "
 ```
+
+## Contributing
+
+Contributions are welcome. Please open an issue or submit a pull request.

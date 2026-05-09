@@ -1,8 +1,26 @@
-# mcp-591
+# MCP 591
 
-MCP server 讓 AI 助理能搜尋 [591 售屋網](https://house.591.com.tw) 的物件資訊。
+[![PyPI version](https://img.shields.io/pypi/v/mcp-591)](https://pypi.org/project/mcp-591/)
+[![Python versions](https://img.shields.io/pypi/pyversions/mcp-591)](https://pypi.org/project/mcp-591/)
+[![GitHub stars](https://img.shields.io/github/stars/asgard-ai-platform/mcp-591)](https://github.com/asgard-ai-platform/mcp-591/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/asgard-ai-platform/mcp-591)](https://github.com/asgard-ai-platform/mcp-591/issues)
+[![GitHub last commit](https://img.shields.io/github/last-commit/asgard-ai-platform/mcp-591)](https://github.com/asgard-ai-platform/mcp-591/commits/main)
+[![MCP](https://img.shields.io/badge/MCP-compatible-blue)](https://modelcontextprotocol.io/)
 
-> **注意**：本專案透過非公開的 API 抓取資料，屬個人研究用途。請勿大量或高頻率呼叫，以免對服務造成負擔。
+[English](README.md)
+
+開源 [MCP（Model Context Protocol）](https://modelcontextprotocol.io/) server，將台灣最大房地產平台 [591 售屋網](https://house.591.com.tw) 包裝成 4 個 AI 可呼叫的 tool，支援售屋與租屋搜尋。
+
+可搭配 [Claude Code](https://claude.ai/code)、Claude Desktop 或任何相容 MCP 的 AI 客戶端，讓 AI 助理透過自然語言查詢物件並取得完整詳情。
+
+> **注意：** 本專案透過非公開 API 抓取資料，屬個人研究用途。請勿大量或高頻率呼叫，以免對服務造成負擔。
+
+## 功能
+
+- **4 個現成 tool**：售屋搜尋、售屋詳情、租屋搜尋、租屋詳情
+- **MCP server**（stdio）— 接上 Claude Code 即可開始使用
+- **自然語言參數對應**：中文縣市、區域、人類可讀的篩選條件（如 `電梯大樓`、`3房`、`5_10`）
+- **相依輕量**：僅需 `fastmcp` + `requests`
 
 ## 使用範例
 
@@ -23,24 +41,31 @@ Claude 自動推導參數並呼叫 `search_sale`：
 
 > **Claude：** 青埔周邊 1,000~1,400 萬、10 年內電梯大樓，共找到 5年內 135 筆、5~10年 146 筆，以下整理 CP 值較高的物件：...
 
-## 相依
+---
 
-- Python 3.14+
-- [uv](https://github.com/astral-sh/uv)
+## 快速開始
 
-## 安裝
+### 安裝
 
 ```bash
-git clone <repo>
-cd mcp-591
-uv sync
+pip install mcp-591
 ```
 
-## 如何使用
+或使用 uvx（不需安裝）：
 
-### 作為 MCP Server（搭配 Claude Desktop / Claude Code）
+```bash
+uvx mcp-591
+```
 
-專案根目錄已附 `.mcp.json`，Claude Code 會自動偵測：
+### 搭配 Claude Code
+
+透過 Claude CLI 加入：
+
+```bash
+claude mcp add --transport stdio 591 -- uvx mcp-591
+```
+
+如果你 clone 專案到本地，根目錄的 `.mcp.json` 會自動被 Claude Code 偵測：
 
 ```json
 {
@@ -54,9 +79,26 @@ uv sync
 }
 ```
 
-啟動後可使用四個 tool：
+### 搭配 Claude Desktop
 
-#### `search_sale` — 搜尋售屋列表
+加入 `claude_desktop_config.json`：
+
+```json
+{
+  "mcpServers": {
+    "591": {
+      "command": "uvx",
+      "args": ["mcp-591"]
+    }
+  }
+}
+```
+
+---
+
+## Tool 列表（共 4 個）
+
+### `search_sale` — 搜尋售屋列表
 
 | 參數 | 型別 | 說明 |
 |---|---|---|
@@ -73,7 +115,7 @@ uv sync
 | `page_size` | int | 每頁筆數，最大 30（預設 30） |
 | `first_row` | int | 分頁 offset（預設 0） |
 
-#### `get_sale_detail` — 取得物件詳情
+### `get_sale_detail` — 取得售屋物件詳情
 
 | 參數 | 型別 | 說明 |
 |---|---|---|
@@ -81,7 +123,7 @@ uv sync
 
 回傳包含：坪數細項（主建物 / 公設比）、樓層、屋齡、交通、停車、裝潢、貸款試算、聯絡資訊、備註等。
 
-#### `search_rent` — 搜尋租屋列表
+### `search_rent` — 搜尋租屋列表
 
 | 參數 | 型別 | 說明 |
 |---|---|---|
@@ -94,13 +136,27 @@ uv sync
 | `keywords` | str | 關鍵字，例如 `捷運` |
 | `first_row` | int | 分頁 offset（預設 0），使用上一頁回傳的 `next_first_row` |
 
-#### `get_rent_detail` — 取得租屋物件詳情
+### `get_rent_detail` — 取得租屋物件詳情
 
 | 參數 | 型別 | 說明 |
 |---|---|---|
 | `post_id` | str | 物件 ID，來自 `search_rent` 結果的 `post_id` 欄位 |
 
 回傳包含：租金、押金、坪數、樓層、建物型態、格局、地址與座標、租期、入住時間、寵物 / 開伙 / 性別限制、提供設備、聯絡資訊、備註等。
+
+---
+
+## 開發
+
+### 從原始碼設定
+
+需要 Python 3.14+ 與 [uv](https://github.com/astral-sh/uv)。
+
+```bash
+git clone https://github.com/asgard-ai-platform/mcp-591.git
+cd mcp-591
+uv sync --dev
+```
 
 ### 直接執行 client（除錯用）
 
@@ -114,12 +170,9 @@ uv run python -m mcp_591.client 桃園市 中壢區 電梯大樓 3房 2衛 30_40
 
 參數順序：`<縣市> [區域] [型態,...] [格局,...] [衛浴,...] [坪數] [屋齡]`，空字串 `""` 可跳過中間參數。
 
-## 開發與測試
+### 執行測試
 
 ```bash
-# 安裝含開發相依
-uv sync --dev
-
 # 單元測試（不打 API，使用 fixture）
 uv run pytest
 
@@ -157,3 +210,7 @@ json.dump(c.get_rent_detail(21103645),
           open('tests/fixtures/rent_detail.json', 'w'), ensure_ascii=False, indent=2)
 "
 ```
+
+## 貢獻
+
+歡迎開 issue 或送 pull request。
