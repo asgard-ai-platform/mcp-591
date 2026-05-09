@@ -2,6 +2,7 @@
 
 [![PyPI version](https://img.shields.io/pypi/v/mcp-591)](https://pypi.org/project/mcp-591/)
 [![Python versions](https://img.shields.io/pypi/pyversions/mcp-591)](https://pypi.org/project/mcp-591/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub stars](https://img.shields.io/github/stars/asgard-ai-platform/mcp-591)](https://github.com/asgard-ai-platform/mcp-591/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/asgard-ai-platform/mcp-591)](https://github.com/asgard-ai-platform/mcp-591/issues)
 [![GitHub last commit](https://img.shields.io/github/last-commit/asgard-ai-platform/mcp-591)](https://github.com/asgard-ai-platform/mcp-591/commits/main)
@@ -214,3 +215,7 @@ json.dump(c.get_rent_detail(21103645),
 ## 貢獻
 
 歡迎開 issue 或送 pull request。
+
+## 授權
+
+MIT — 詳見 [LICENSE](LICENSE)。
