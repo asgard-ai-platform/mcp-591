@@ -8,7 +8,7 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/asgard-ai-platform/mcp-591)](https://github.com/asgard-ai-platform/mcp-591/commits/main)
 [![MCP](https://img.shields.io/badge/MCP-compatible-blue)](https://modelcontextprotocol.io/)
 
-[繁體中文](README.zh-tw.md)
+[繁體中文](README.zh-TW.md)
 
 An open-source [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) server that exposes [591.com.tw](https://house.591.com.tw) — Taiwan's largest real estate platform — as 4 AI-callable tools for searching sale and rental listings.
 
